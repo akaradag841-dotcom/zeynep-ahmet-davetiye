@@ -25,9 +25,8 @@
   <style>
     :root {
       --cream: #f7f1e6;
-      --cream-light: #fffdf8;
+      --paper: #fffdf8;
       --gold: #c59b47;
-      --gold-light: #ead8ae;
       --green: #5d704f;
       --green-dark: #45583b;
       --text: #3e372f;
@@ -102,7 +101,7 @@
       padding:
         max(34px, env(safe-area-inset-top))
         16px
-        56px;
+        60px;
 
       display: flex;
       flex-direction: column;
@@ -135,7 +134,7 @@
 
     .envelope-stage {
       width: 100%;
-      padding-top: 95px;
+      padding-top: 100px;
 
       display: grid;
       place-items: center;
@@ -156,7 +155,6 @@
       z-index: 1;
 
       border-radius: 9px;
-
       background: #e6ce9d;
 
       box-shadow:
@@ -176,7 +174,7 @@
       overflow: hidden;
 
       border-radius: 18px;
-      background: var(--cream-light);
+      background: var(--paper);
 
       box-shadow:
         0 14px 34px rgba(58, 45, 28, 0.24);
@@ -204,7 +202,6 @@
       z-index: 4;
 
       overflow: hidden;
-
       border-radius: 9px;
 
       pointer-events: none;
@@ -334,7 +331,6 @@
 
     .envelope.open .seal {
       opacity: 0;
-
       pointer-events: none;
 
       transform:
@@ -349,7 +345,7 @@
 
       min-width: 210px;
 
-      margin-top: 58px;
+      margin-top: 60px;
       padding: 16px 34px;
 
       border: none;
@@ -420,7 +416,6 @@
 
     .countdown-card {
       padding: 24px 14px;
-
       text-align: center;
     }
 
@@ -447,7 +442,6 @@
       padding: 14px 4px;
 
       border-radius: 16px;
-
       background: #f5eddf;
     }
 
@@ -503,7 +497,6 @@
       flex-shrink: 0;
 
       border-radius: 50%;
-
       background: #f3e7cf;
 
       font-size: 22px;
@@ -578,7 +571,6 @@
       margin-top: 2px;
 
       text-align: center;
-
       color: var(--gold);
 
       font-family:
@@ -697,7 +689,7 @@
           <div class="letter">
 
             <img
-              src="davetiye.png"
+              src="davetiye.PNG"
               alt="Zeynep ve Ahmet nikah davetiyesi">
 
           </div>
@@ -1086,7 +1078,6 @@
             );
 
             downloadLink.click();
-
             downloadLink.remove();
 
             URL.revokeObjectURL(
