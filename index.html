@@ -199,20 +199,23 @@ padding-top: 70px;
     .letter {
   position: absolute;
   left: 50%;
-  bottom: 4%;
+  bottom: 2%;
 
   width: min(56%, 300px);
   aspect-ratio: 2 / 3;
 
-z-index: 3;
+  z-index: 3;
   overflow: hidden;
 
   border-radius: 18px;
   background: var(--paper);
   box-shadow: 0 14px 34px rgba(58, 45, 28, 0.24);
 
-  transform: translateX(-50%) translateY(0);
-  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  transform: translate(-50%, 68%);
+  transition:
+    transform 1.05s cubic-bezier(0.22, 1, 0.36, 1),
+    width 0.7s ease,
+    z-index 0s linear 0.18s;
 }
 
     .letter img {
@@ -246,8 +249,10 @@ z-index: 3;
       height: 100%;
 
       background: #efddb5;
-    }
-
+transition:
+  transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+  filter 0.75s ease;
+      }
     .envelope-front::before {
       left: 0;
 
@@ -280,7 +285,7 @@ z-index: 3;
       width: 100%;
       height: 59%;
 
-      z-index: 2;
+      z-index: 6;
 
       transform-origin: top center;
       transform: rotateX(0deg);
@@ -302,8 +307,8 @@ z-index: 3;
       backface-visibility: hidden;
 
       transition:
-        transform 0.95s cubic-bezier(0.22, 1, 0.36, 1),
-        z-index 0s linear 0.46s;
+  transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+  z-index 0s linear 0.5s;
     }
 
     .seal {
@@ -352,8 +357,17 @@ z-index: 3;
   z-index: 7;
   width: min(73%, 390px);
   transform: translate(-50%, -52%);
+  transition-delay: 0.16s;
+    }
+.envelope.open .envelope-front::before {
+  transform: translateX(-10px) translateY(6px) rotate(-3deg);
+  filter: brightness(0.98);
 }
 
+.envelope.open .envelope-front::after {
+  transform: translateX(10px) translateY(6px) rotate(3deg);
+  filter: brightness(0.98);
+}
 
     .envelope.open .seal {
       opacity: 0;
@@ -670,11 +684,10 @@ z-index: 3;
       }
 
       .envelope.open .letter {
-        width: min(75%, 345px);
-
-        transform:
-          translate(-50%, -50%);
-      }
+  width: min(75%, 345px);
+  transform: translate(-50%, -48%);
+  transition-delay: 0.16s;
+}
 
       .open-button {
         margin-top: 60px;
