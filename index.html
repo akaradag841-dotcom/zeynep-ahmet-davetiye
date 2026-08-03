@@ -111,67 +111,27 @@ overflow: hidden;
           #f3ebdf 100%
         );
     }
-
-.background::before,
-.background::after {
+.background::before {
   content: "";
   position: absolute;
+  left: 50%;
   bottom: 0;
+  transform: translateX(-50%);
+
+  width: min(78vw, 540px);
+  height: min(78vh, 620px);
+
+  background:
+    url("gelin-damat.png")
+    center bottom / contain no-repeat;
+
+  opacity: 0.55;
   pointer-events: none;
-  filter: blur(1.2px);
-}
-    .background::before {
-  left: 50%;
-  width: min(42vw, 220px);
-  height: min(62vh, 470px);
-  transform: translateX(-115%);
-  opacity: 0.10;
 
-  background:
-    radial-gradient(
-      circle at 50% 14%,
-      rgba(93, 112, 79, 0.52) 0 10%,
-      transparent 11%
-    ),
-    radial-gradient(
-      ellipse at 50% 38%,
-      rgba(93, 112, 79, 0.42) 0 18%,
-      transparent 19%
-    ),
-    radial-gradient(
-      ellipse at 50% 88%,
-      rgba(93, 112, 79, 0.28) 0 42%,
-      transparent 43%
-    ),
-    radial-gradient(
-      ellipse at 24% 58%,
-      rgba(93, 112, 79, 0.18) 0 24%,
-      transparent 25%
-    );
-}
-
-.background::after {
-  left: 50%;
-  width: min(34vw, 185px);
-  height: min(57vh, 430px);
-  transform: translateX(10%);
-  opacity: 0.11;
-
-  background:
-    radial-gradient(
-      circle at 50% 14%,
-      rgba(93, 112, 79, 0.56) 0 10%,
-      transparent 11%
-    ),
-    radial-gradient(
-      ellipse at 50% 40%,
-      rgba(93, 112, 79, 0.45) 0 17%,
-      transparent 18%
-    ),
-    radial-gradient(
-      ellipse at 50% 86%,
-      rgba(93, 112, 79, 0.30) 0 31%,
-      transparent 32%
+  filter:
+    drop-shadow(
+      0 14px 30px
+      rgba(62, 55, 47, 0.18)
     );
 }
 
