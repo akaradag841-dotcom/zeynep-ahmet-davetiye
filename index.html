@@ -211,10 +211,12 @@ padding-top: 70px;
   background: var(--paper);
   box-shadow: 0 14px 34px rgba(58, 45, 28, 0.24);
 
-  transform: translate(-50%, 105%);
+  transform: translate(-50%, 0);
+opacity: 0;
   transition:
     transform 1.05s cubic-bezier(0.22, 1, 0.36, 1),
     width 0.7s ease,
+    opacity: 0;
     z-index 0s linear 0.18s;
 }
 
@@ -357,6 +359,7 @@ transition:
   z-index: 7;
   width: min(73%, 390px);
   transform: translate(-50%, -52%);
+      opacity: 1;
   transition-delay: 0.16s;
     }
 .envelope.open .envelope-front::before {
