@@ -222,7 +222,50 @@ padding-top: 70px;
 
       perspective: 1700px;
     }
+.envelope-decor {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 12;
+}
 
+.envelope-decor .decor {
+  position: absolute;
+  color: #c8a24d;
+  text-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  opacity: 0.95;
+}
+
+.envelope-decor .d1 {
+  top: 22px;
+  left: 70px;
+  font-size: 16px;
+}
+
+.envelope-decor .d2 {
+  top: 42px;
+  right: 82px;
+  font-size: 13px;
+}
+
+.envelope-decor .d3 {
+  top: 28px;
+  left: 50%;
+  font-size: 14px;
+  transform: translateX(-50%);
+}
+
+.envelope-decor .d4 {
+  top: 58px;
+  left: 120px;
+  font-size: 12px;
+}
+
+.envelope-decor .d5 {
+  top: 64px;
+  right: 120px;
+  font-size: 15px;
+}
     .envelope-back {
       position: absolute;
       inset: 0;
@@ -835,7 +878,13 @@ letter-spacing: 2px;
       ZA
     </div>
 
-  </div>
+   <div class="envelope-decor">
+  <span class="decor d1">♥</span>
+  <span class="decor d2">♥</span>
+  <span class="decor d3">✦</span>
+  <span class="decor d4">✧</span>
+  <span class="decor d5">♥</span>
+</div>
 
 </div>
 
