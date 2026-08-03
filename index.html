@@ -771,7 +771,8 @@
       <img
   id="invitationImage"
   src="davetiye.png.PNG"
-  alt="Zeynep ve Ahmet nikah davetiyesi">
+  alt="Zeynep ve Ahmet nikah davetiyesi"
+  onclick="document.getElementById('imageModal').classList.add('active'); document.body.style.overflow='hidden';">
     </div>
 
     <div class="envelope-front"></div>
@@ -1168,10 +1169,12 @@
   id="imageModal">
 
   <button
-    type="button"
-    class="modal-close"
-    id="modalClose">
-    ×
+  type="button"
+  class="modal-close"
+  id="modalClose"
+  onclick="document.getElementById('imageModal').classList.remove('active'); document.body.style.overflow='';">
+  ×
+</button>
   </button>
 
   <img
