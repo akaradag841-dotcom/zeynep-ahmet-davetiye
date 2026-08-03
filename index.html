@@ -166,11 +166,28 @@ overflow: hidden;
       text-align: center;
     }
 
-    .couple-title {
-      color: var(--gold);
-      font-family: "Great Vibes", cursive;
-      font-size: clamp(38px, 10vw, 60px);
-    }
+   .couple-title {
+  color: var(--gold);
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(34px, 9vw, 56px);
+  font-weight: 500;
+  letter-spacing: 0.03em;
+  line-height: 1.05;
+}
+
+.couple-title .initial {
+  font-family: "Great Vibes", cursive;
+  font-size: 1.45em;
+  font-weight: 400;
+  line-height: 0;
+}
+
+.couple-title .ampersand {
+  margin: 0 7px;
+  font-family: "Great Vibes", cursive;
+  font-size: 1.15em;
+  font-weight: 400;
+}
 
     h1 {
       margin-top: 4px;
@@ -783,8 +800,10 @@ letter-spacing: 2px;
     <section class="hero">
 
       <p class="couple-title">
-        Zeynep & Ahmet
-      </p>
+  <span class="initial">Z</span>eynep
+  <span class="ampersand">&amp;</span>
+  <span class="initial">A</span>hmet
+</p>
 
       <h1>
         Nikah Davetiyesi
