@@ -688,7 +688,56 @@
         margin-top: 60px;
       }
     }
-  </style>
+ .image-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 20px;
+
+  background: rgba(0, 0, 0, 0.92);
+}
+
+.image-modal.active {
+  display: flex;
+}
+
+.image-modal img {
+  max-width: 94vw;
+  max-height: 90vh;
+
+  object-fit: contain;
+
+  border-radius: 12px;
+}
+
+.modal-close {
+  position: absolute;
+  top: max(18px, env(safe-area-inset-top));
+  right: 18px;
+
+  width: 48px;
+  height: 48px;
+
+  border: none;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.92);
+  color: #222;
+
+  font-size: 34px;
+  line-height: 1;
+
+  cursor: pointer;
+}
+
+#invitationImage {
+  cursor: zoom-in;
+} </style>
 </head>
 
 <body>
@@ -720,8 +769,9 @@
 
     <div class="letter">
       <img
-        src="davetiye.png.PNG"
-        alt="Zeynep ve Ahmet nikah davetiyesi">
+  id="invitationImage"
+  src="davetiye.png.PNG"
+  alt="Zeynep ve Ahmet nikah davetiyesi">
     </div>
 
     <div class="envelope-front"></div>
@@ -1113,5 +1163,45 @@
     );
   </script>
 
+<div
+  class="image-modal"
+  id="imageModal">
+
+  <button
+    type="button"
+    class="modal-close"
+    id="modalClose">
+    ×
+  </button>
+
+  <img
+    src="davetiye.png.PNG"
+    alt="Zeynep ve Ahmet nikah davetiyesi tam ekran">
+
+</div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const invitationImage = document.getElementById("invitationImage");
+    const imageModal = document.getElementById("imageModal");
+    const modalClose = document.getElementById("modalClose");
+
+    invitationImage.addEventListener("click", function () {
+      imageModal.classList.add("active");
+      document.body.style.overflow = "hidden";
+    });
+
+    modalClose.addEventListener("click", function () {
+      imageModal.classList.remove("active");
+      document.body.style.overflow = "";
+    });
+
+    imageModal.addEventListener("click", function (event) {
+      if (event.target === imageModal) {
+        imageModal.classList.remove("active");
+        document.body.style.overflow = "";
+      }
+    });
+  });
+</script>
 </body>
 </html>
