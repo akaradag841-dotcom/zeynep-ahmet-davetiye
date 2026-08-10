@@ -894,10 +894,10 @@ height: 4px;
   left: 50%;
   top: 50%;
 
-  width: 16px;
-  height: 8px;
+  width: 26px;
+  height: 13px;
 
-  border-radius: 100% 0 100% 0;
+  border-radius: 100% 0 100% 0 / 100% 0 100% 0;
 
   background:
     linear-gradient(
@@ -918,7 +918,17 @@ height: 4px;
     cubic-bezier(0.22, 1, 0.36, 1)
     forwards;
 }
-
+.leaf::after {
+  content: "";
+  position: absolute;
+  left: 3px;
+  top: 50%;
+  width: 20px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.55);
+  transform: translateY(-50%) rotate(-5deg);
+  border-radius: 999px;
+}
 @keyframes leafBurst {
   0% {
     opacity: 0;
@@ -942,13 +952,13 @@ height: 4px;
         calc(-50% + var(--leaf-y))
       )
       rotate(var(--leaf-rotate))
-      scale(0.8);
+      scale(1);
   }
 }
 }
 
 </style>
-  </style>
+
 </head>
 
 <body>
