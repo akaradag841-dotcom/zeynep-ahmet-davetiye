@@ -43,7 +43,7 @@
 
 <meta
   name="twitter:image"
-  content="https://akaradag841-dotcom.github.io/zeynep-ahmet-davetiye/davetiye.png.PNG">  <title>Zeynep & Ahmet | Nikah Davetiyesi</title>
+  content="https://akaradag841-dotcom.github.io/zeynep-ahmet-davetiye/davetiye.png.PNG">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
 
@@ -133,10 +133,8 @@ overflow: hidden;
 }
 
 .particles {
-  position: fixed;
   inset: 0;
      position: fixed;
-      inset: 0;
       z-index: -2;
       pointer-events: none;
       opacity: 0.38;
@@ -295,12 +293,11 @@ padding-top: 70px;
 
   transform: translate(-50%, 0);
 opacity: 0;
-  transition:
-    transform 1.05s cubic-bezier(0.22, 1, 0.36, 1),
-    width 0.7s ease,
-    opacity: 0;
-    z-index 0s linear 0.18s;
-}
+transition:
+  transform 1.05s cubic-bezier(0.22, 1, 0.36, 1),
+  width 0.7s ease,
+  opacity 0.45s ease,
+  z-index 0s linear 0.18s;
 
     .letter img {
       display: block;
@@ -562,8 +559,9 @@ letter-spacing: 2px;
   100% {
     left: 140%;
     opacity: 0;
-  
-}/* SİNEMATİK SPOT IŞIĞI */
+      }
+}
+  /* SİNEMATİK SPOT IŞIĞI */
 .envelope::before {
   content: "";
   position: absolute;
@@ -1002,7 +1000,7 @@ letter-spacing: 2px;
       .envelope.open .letter {
   width: min(75%, 345px);
   transform: translate(-50%, -48%);
-  transition-delay: 0.16s;
+  transition-delay: 0.55s;
 }
 
       .open-button {
@@ -1116,6 +1114,7 @@ height: 4px;
       )
       scale(0.15);
   } 
+     }
   /* ZARİF YAPRAK ANİMASYONU */
 .leaf {
   position: absolute;
@@ -1183,7 +1182,6 @@ height: 4px;
       scale(1);
   }
 }
-}
 
 </style>
 
@@ -1226,8 +1224,7 @@ height: 4px;
       <img
   id="invitationImage"
   src="davetiye.png.PNG"
-  alt="Zeynep ve Ahmet nikah davetiyesi"
-  onclick="document.getElementById('imageModal').classList.add('active'); document.body.style.overflow='hidden';">
+  alt="Zeynep ve Ahmet nikah davetiyesi">
     </div>
 
     <div class="envelope-front"></div>
@@ -1757,11 +1754,9 @@ function createSparkles() {
   <button
   type="button"
   class="modal-close"
-  id="modalClose"
-  onclick="document.getElementById('imageModal').classList.remove('active'); document.body.style.overflow='';">
+  id="modalClose">
   ×
 </button>
-  </button>
 
   <img
     src="davetiye.png.PNG"
