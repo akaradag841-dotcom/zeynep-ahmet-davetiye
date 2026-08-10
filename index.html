@@ -887,7 +887,64 @@ height: 4px;
         calc(-50% + var(--sparkle-y))
       )
       scale(0.15);
+  } 
+  /* ZARİF YAPRAK ANİMASYONU */
+.leaf {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+
+  width: 16px;
+  height: 8px;
+
+  border-radius: 100% 0 100% 0;
+
+  background:
+    linear-gradient(
+      135deg,
+      #7f936f,
+      #5d704f
+    );
+
+  opacity: 0;
+
+  transform:
+    translate(-50%, -50%)
+    rotate(0deg)
+    scale(0.4);
+
+  animation:
+    leafBurst 1.9s
+    cubic-bezier(0.22, 1, 0.36, 1)
+    forwards;
+}
+
+@keyframes leafBurst {
+  0% {
+    opacity: 0;
+
+    transform:
+      translate(-50%, -50%)
+      rotate(0deg)
+      scale(0.4);
   }
+
+  20% {
+    opacity: 0.9;
+  }
+
+  100% {
+    opacity: 0;
+
+    transform:
+      translate(
+        calc(-50% + var(--leaf-x)),
+        calc(-50% + var(--leaf-y))
+      )
+      rotate(var(--leaf-rotate))
+      scale(0.8);
+  }
+}
 }
 
 </style>
@@ -1141,7 +1198,7 @@ height: 4px;
 
             if (isOpen) {
               createSparkles();
-
+createLeaves();
               if (!confettiPlayed) {
                 createConfetti();
                 confettiPlayed = true;
@@ -1281,6 +1338,67 @@ function createSparkles() {
         sparkle.remove();
       },
       1900
+    );
+  }
+}
+        function createLeaves() {
+
+  const leafCount = 8;
+
+  for (
+    let i = 0;
+    i < leafCount;
+    i += 1
+  ) {
+
+    const leaf =
+      document.createElement("span");
+
+    leaf.className =
+      "leaf";
+
+    const angle =
+      Math.random() * Math.PI * 2;
+
+    const distance =
+      70 + Math.random() * 100;
+
+    const x =
+      Math.cos(angle) * distance;
+
+    const y =
+      Math.sin(angle) * distance;
+
+    const rotate =
+      Math.floor(Math.random() * 360) + "deg";
+
+    leaf.style.setProperty(
+      "--leaf-x",
+      x + "px"
+    );
+
+    leaf.style.setProperty(
+      "--leaf-y",
+      y + "px"
+    );
+
+    leaf.style.setProperty(
+      "--leaf-rotate",
+      rotate
+    );
+
+    leaf.style.animationDelay =
+      Math.random() * 0.2 + "s";
+
+    sparkleContainer.appendChild(
+      leaf
+    );
+
+    setTimeout(
+      function () {
+        leaf.remove();
+      },
+      2200
     );
   }
 }
