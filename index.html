@@ -138,10 +138,6 @@
       background-size: 70px 70px;
     }
 
-    /* =========================
-       BAŞLIK
-       ========================= */
-
     .hero {
       min-height: 100svh;
 
@@ -214,10 +210,6 @@
       line-height: 1.45;
     }
 
-    /* =========================
-       ZARF
-       ========================= */
-
     .envelope-stage {
       width: 100%;
 
@@ -258,10 +250,6 @@
         0 25px 50px
         rgba(71, 55, 34, 0.22);
     }
-
-    /* =========================
-       DAVETİYE - ZARFIN İÇİNDE
-       ========================= */
 
     .letter {
       position: absolute;
@@ -328,10 +316,6 @@
       transition-delay:
         0.52s;
     }
-
-    /* =========================
-       ZARF ÖNÜ
-       ========================= */
 
     .envelope-front {
       position: absolute;
@@ -414,10 +398,6 @@
         rotate(3deg);
     }
 
-    /* =========================
-       ZARF KAPAĞI
-       ========================= */
-
     .envelope-flap {
       position: absolute;
 
@@ -470,11 +450,6 @@
       transform:
         rotateX(180deg);
     }
-
-    /* =========================
-       KALPLER
-       SADECE ZARFIN İÇİNDE
-       ========================= */
 
     .heart-mask {
       position: absolute;
@@ -571,10 +546,6 @@
     .h41 { top: 80%; left: 73%; }
     .h42 { top: 88%; left: 84%; }
     .h43 { top: 81%; left: 93%; }
-
-    /* =========================
-       MÜHÜR
-       ========================= */
 
     .seal {
       position: absolute;
@@ -686,11 +657,6 @@
         rotate(-20deg);
     }
 
-    /* =========================
-       İLK AÇILIŞTA ORTADAKİ
-       NET DAVETİYE
-       ========================= */
-
     .opening-preview {
       position: fixed;
 
@@ -766,10 +732,6 @@
       cursor: zoom-in;
     }
 
-    /* =========================
-       ZARF BUTONU
-       ========================= */
-
     .open-button {
       position: relative;
 
@@ -823,10 +785,6 @@
     .open-button:active {
       transform: scale(0.97);
     }
-
-    /* =========================
-       DETAYLAR
-       ========================= */
 
     .details {
       width:
@@ -1171,10 +1129,6 @@
       letter-spacing: 8px;
     }
 
-    /* =========================
-       KONFETİ
-       ========================= */
-
     .confetti-container {
       position: fixed;
       inset: 0;
@@ -1211,10 +1165,6 @@
           rotate(720deg);
       }
     }
-
-    /* =========================
-       TAM EKRAN DAVETİYE
-       ========================= */
 
     .image-modal {
       position: fixed;
@@ -1300,10 +1250,6 @@
     #invitationImage {
       cursor: zoom-in;
     }
-
-    /* =========================
-       PARILTI
-       ========================= */
 
     .sparkle-container {
       position: absolute;
@@ -1429,7 +1375,6 @@
 
   <div class="particles"></div>
 
-  <!-- İlk 3 saniye ekranın ortasında görünen net davetiye -->
   <div
     class="opening-preview"
     id="openingPreview">
@@ -1488,8 +1433,6 @@
           <div class="envelope-front"></div>
 
           <div class="envelope-flap"></div>
-
-          <!-- Kalplerin taşmasını engelleyen maske -->
 
           <div class="heart-mask">
 
@@ -1718,8 +1661,6 @@
     id="confettiContainer">
   </div>
 
-  <!-- Tam ekran davetiye -->
-
   <div
     class="image-modal"
     id="imageModal">
@@ -1851,11 +1792,6 @@
                 confettiPlayed = true;
               }
 
-              /*
-                Önce zarf açılıyor.
-                Sonra ortada net davetiye görünüyor.
-              */
-
               setTimeout(
                 function () {
 
@@ -1874,11 +1810,8 @@
               );
 
               /*
-                3 saniye sonra sadece
-                ortadaki büyük önizleme kayboluyor.
-
-                ZARF KAPANMIYOR.
-                ZARFTAKİ DAVETİYE AÇIK KALIYOR.
+                DAVETİYE 6 SANİYE
+                ORTADA KALIR.
               */
 
               previewTimer =
@@ -1914,7 +1847,7 @@
                     );
 
                   },
-                  3650
+                  6650
                 );
 
             } else {
@@ -1949,11 +1882,6 @@
           }
         );
 
-        /*
-          Zarfta açık kalan davetiyeye
-          dokununca tam ekran.
-        */
-
         invitationImage
           .addEventListener(
             "click",
@@ -1967,11 +1895,6 @@
 
             }
           );
-
-        /*
-          İlk üç saniyedeki büyük
-          davetiyeye de dokunulabilir.
-        */
 
         openingPreviewImage
           .addEventListener(
@@ -2019,10 +1942,6 @@
 
             }
           );
-
-        /*
-          GERİ SAYIM
-        */
 
         function updateCountdown() {
 
@@ -2113,10 +2032,6 @@
           1000
         );
 
-        /*
-          PARILTI
-        */
-
         function createSparkles() {
 
           const sparkleCount =
@@ -2187,10 +2102,6 @@
 
         }
 
-        /*
-          KONFETİ
-        */
-
         function createConfetti() {
 
           const colors = [
@@ -2258,10 +2169,6 @@
           }
 
         }
-
-        /*
-          TAKVİME EKLE
-        */
 
         calendarButton
           .addEventListener(
