@@ -2,7 +2,6 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -11,40 +10,30 @@
 
   <title>Zeynep & Ahmet | Nikah Davetiyesi</title>
 
-  <!-- WhatsApp / sosyal medya önizlemesi -->
-
   <meta property="og:type" content="website">
-
   <meta
     property="og:title"
     content="Zeynep & Ahmet | Nikah Davetiyesi">
-
   <meta
     property="og:description"
     content="Bu özel günümüzde sizleri de aramızda görmekten mutluluk duyarız. 4 Eylül 2026 • 15:30">
-
   <meta
     property="og:url"
     content="https://akaradag841-dotcom.github.io/zeynep-ahmet-davetiye/">
-
   <meta
     property="og:image"
     content="https://akaradag841-dotcom.github.io/zeynep-ahmet-davetiye/davetiye.png.PNG">
-
   <meta property="og:locale" content="tr_TR">
 
   <meta
     name="twitter:card"
     content="summary_large_image">
-
   <meta
     name="twitter:title"
     content="Zeynep & Ahmet | Nikah Davetiyesi">
-
   <meta
     name="twitter:description"
     content="4 Eylül 2026 saat 15:30'da gerçekleşecek nikah törenimize davetlisiniz.">
-
   <meta
     name="twitter:image"
     content="https://akaradag841-dotcom.github.io/zeynep-ahmet-davetiye/davetiye.png.PNG">
@@ -52,26 +41,24 @@
   <link
     rel="preconnect"
     href="https://fonts.googleapis.com">
-
   <link
     rel="preconnect"
     href="https://fonts.gstatic.com"
     crossorigin>
-
   <link
     href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&display=swap"
     rel="stylesheet">
 
   <style>
-
     :root {
       --cream: #f7f1e6;
       --paper: #fffdf8;
       --gold: #c59b47;
-      --gold-soft: #e8d4a5;
+      --gold-soft: #ead8ae;
       --green: #5d704f;
       --green-dark: #45583b;
       --text: #3e372f;
+      --shadow: rgba(79, 63, 42, 0.14);
     }
 
     * {
@@ -86,22 +73,30 @@
 
     body {
       min-height: 100vh;
-
       overflow-x: hidden;
-
       background:
+        radial-gradient(
+          circle at 20% 20%,
+          rgba(197, 155, 71, 0.12),
+          transparent 30%
+        ),
+        radial-gradient(
+          circle at 80% 75%,
+          rgba(93, 112, 79, 0.10),
+          transparent 34%
+        ),
         linear-gradient(
           180deg,
           #fffdf8 0%,
           #f7f1e6 55%,
           #f2e9dc 100%
         );
-
       color: var(--text);
+      font-family: "Cormorant Garamond", serif;
+    }
 
-      font-family:
-        "Cormorant Garamond",
-        serif;
+    body.no-scroll {
+      overflow: hidden;
     }
 
     button,
@@ -109,326 +104,177 @@
       font: inherit;
     }
 
-
-    /* =========================
-       ARKA PLAN
-       ========================= */
-
-    .background {
-      position: fixed;
-
-      inset: 0;
-
-      z-index: -3;
-
-      overflow: hidden;
-
-      background:
-        radial-gradient(
-          circle at 20% 18%,
-          rgba(197, 155, 71, 0.13),
-          transparent 31%
-        ),
-
-        radial-gradient(
-          circle at 82% 72%,
-          rgba(93, 112, 79, 0.10),
-          transparent 34%
-        ),
-
-        linear-gradient(
-          180deg,
-          #fffdf8 0%,
-          #f3ebdf 100%
-        );
-    }
-
-
-    /* Arkada artık fotoğraf YOK */
-
-
     .particles {
       position: fixed;
-
       inset: 0;
-
-      z-index: -2;
-
+      z-index: -1;
       pointer-events: none;
-
-      opacity: 0.32;
-
+      opacity: 0.33;
       background-image:
         radial-gradient(
           circle,
-          rgba(197, 155, 71, 0.52) 1.2px,
+          rgba(197, 155, 71, 0.55) 1.2px,
           transparent 1.5px
         );
-
-      background-size:
-        70px 70px;
+      background-size: 70px 70px;
     }
-
-
-    /* =========================
-       ÜST BÖLÜM
-       ========================= */
 
     .hero {
       min-height: 100svh;
-
       padding:
         max(34px, env(safe-area-inset-top))
         16px
         60px;
-
       display: flex;
-
       flex-direction: column;
-
       align-items: center;
-
       text-align: center;
     }
 
-
     .couple-title {
       color: var(--gold);
-
-      font-family:
-        "Cormorant Garamond",
-        serif;
-
-      font-size:
-        clamp(34px, 9vw, 56px);
-
+      font-size: clamp(34px, 9vw, 56px);
       font-weight: 500;
-
       letter-spacing: 0.03em;
-
       line-height: 1.05;
-
-      text-shadow:
-        0 3px 14px
-        rgba(197, 155, 71, 0.12);
+      text-shadow: 0 2px 10px rgba(197, 155, 71, 0.12);
     }
-
 
     .couple-title .initial {
       font-size: 1.45em;
-
       font-weight: 600;
-
       line-height: 0;
     }
 
-
     .couple-title .ampersand {
       margin: 0 7px;
-
-      font-family:
-        "Great Vibes",
-        cursive;
-
+      font-family: "Great Vibes", cursive;
       font-size: 1.15em;
-
       font-weight: 400;
     }
 
-
     h1 {
       margin-top: 4px;
-
-      font-size:
-        clamp(30px, 8vw, 46px);
-
+      font-size: clamp(30px, 8vw, 46px);
       font-weight: 500;
     }
 
-
     .intro {
-      width:
-        min(94%, 580px);
-
+      width: min(94%, 580px);
       margin-top: 12px;
-
-      color:
-        rgba(62, 55, 47, 0.78);
-
-      font-size:
-        clamp(18px, 4.8vw, 23px);
-
+      color: rgba(62, 55, 47, 0.80);
+      font-size: clamp(18px, 4.8vw, 23px);
       line-height: 1.45;
     }
 
-
-    /* =========================
-       ZARF ALANI
-       ========================= */
-
     .envelope-stage {
       width: 100%;
-
       padding-top: 62px;
-
       display: grid;
-
       place-items: center;
     }
 
-
     .envelope {
       position: relative;
-
-      width:
-        min(92vw, 590px);
-
-      aspect-ratio:
-        1.48 / 1;
-
+      width: min(92vw, 590px);
+      aspect-ratio: 1.48 / 1;
       perspective: 1700px;
     }
 
+    .invitation-backdrop {
+      position: fixed;
+      inset: 0;
+      z-index: 900;
+      background: rgba(31, 24, 18, 0.42);
+      backdrop-filter: blur(4px);
+      opacity: 0;
+      visibility: hidden;
+      transition:
+        opacity 0.45s ease,
+        visibility 0.45s ease;
+      pointer-events: none;
+    }
+
+    .invitation-backdrop.active {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+    }
 
     .envelope-back {
       position: absolute;
-
       inset: 0;
-
       z-index: 1;
-
       border-radius: 12px;
-
       background:
         linear-gradient(
           145deg,
-          #ead5a7,
-          #dfc58f
+          #ead4a4,
+          #dfc48b
         );
-
       box-shadow:
         0 25px 50px
         rgba(71, 55, 34, 0.22);
     }
 
-
-    /* =========================
-       DAVETİYE
-       ========================= */
-
     .letter {
       position: absolute;
-
       left: 50%;
-
-      bottom: 2%;
-
-      width:
-        min(56%, 300px);
-
-      aspect-ratio:
-        2 / 3;
-
+      bottom: 4%;
+      width: min(56%, 300px);
       z-index: 3;
-
       overflow: hidden;
-
       border-radius: 18px;
-
       background: var(--paper);
-
       box-shadow:
         0 14px 34px
         rgba(58, 45, 28, 0.24);
-
-      transform:
-        translate(-50%, 0);
-
+      transform: translate(-50%, 0);
       opacity: 0;
-
       transition:
-        transform
-        1.05s
-        cubic-bezier(0.22, 1, 0.36, 1),
-
-        width
-        0.7s
-        ease,
-
-        opacity
-        0.45s
-        ease,
-
-        z-index
-        0s
-        linear
-        0.18s;
+        transform 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+        width 0.8s ease,
+        opacity 0.45s ease;
     }
-
 
     .letter img {
       display: block;
-
       width: 100%;
-
-      height: 100%;
-
-      object-fit: cover;
+      height: auto;
+      max-height: 78vh;
+      object-fit: contain;
+      background: white;
     }
-
-
-    /* =========================
-       ZARF ÖN KISIM
-       ========================= */
 
     .envelope-front {
       position: absolute;
-
       inset: 0;
-
       z-index: 4;
-
       overflow: hidden;
-
       border-radius: 12px;
-
       pointer-events: none;
     }
-
 
     .envelope-front::before,
     .envelope-front::after {
       content: "";
-
       position: absolute;
-
       bottom: 0;
-
       width: 52%;
-
       height: 100%;
-
       background:
         linear-gradient(
           165deg,
           #f2e1ba,
           #ead4a6
         );
-
       transition:
-        transform
-        0.75s
-        cubic-bezier(0.22, 1, 0.36, 1),
-
-        filter
-        0.75s
-        ease;
+        transform 0.75s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.75s ease;
     }
-
 
     .envelope-front::before {
       left: 0;
-
       clip-path:
         polygon(
           0 0,
@@ -438,10 +284,8 @@
         );
     }
 
-
     .envelope-front::after {
       right: 0;
-
       clip-path:
         polygon(
           100% 0,
@@ -451,257 +295,151 @@
         );
     }
 
-
-    /* =========================
-       ZARF KAPAĞI
-       ========================= */
-
     .envelope-flap {
       position: absolute;
-
       top: 0;
-
       left: 0;
-
       width: 100%;
-
       height: 59%;
-
       z-index: 6;
-
-      transform-origin:
-        top center;
-
-      transform:
-        rotateX(0deg);
-
+      transform-origin: top center;
+      transform: rotateX(0deg);
       clip-path:
         polygon(
           0 0,
           50% 100%,
           100% 0
         );
-
       background:
         linear-gradient(
           160deg,
           #f0deb7,
           #dec18a
         );
-
-      backface-visibility:
-        hidden;
-
+      backface-visibility: hidden;
       transition:
-        transform
-        1s
-        cubic-bezier(0.22, 1, 0.36, 1),
-
-        z-index
-        0s
-        linear
-        0.5s;
+        transform 1s cubic-bezier(0.22, 1, 0.36, 1),
+        z-index 0s linear 0.5s;
     }
 
-
-    /* =========================
-       ROMANTİK ZARF DESENLERİ
-       ========================= */
-
-    .envelope-decor {
+    .envelope-hearts {
       position: absolute;
-
       inset: 0;
-
-      z-index: 12;
-
+      z-index: 5;
       pointer-events: none;
     }
 
-
-    .envelope-decor .decor {
+    .envelope-hearts span {
       position: absolute;
-
-      color: #c8a24d;
-
-      opacity: 0.90;
-
-      text-shadow:
-        0 3px 10px
-        rgba(105, 75, 25, 0.12);
+      color: rgba(198, 152, 63, 0.92);
+      text-shadow: 0 2px 8px rgba(120, 88, 28, 0.12);
+      font-size: 12px;
     }
 
+    .envelope-hearts .h1  { top: 18px; left: 24px; }
+    .envelope-hearts .h2  { top: 18px; left: 58px; }
+    .envelope-hearts .h3  { top: 18px; left: 92px; }
+    .envelope-hearts .h4  { top: 18px; left: 126px; }
+    .envelope-hearts .h5  { top: 18px; left: 160px; }
+    .envelope-hearts .h6  { top: 18px; left: 194px; }
+    .envelope-hearts .h7  { top: 18px; left: 228px; }
+    .envelope-hearts .h8  { top: 18px; left: 262px; }
+    .envelope-hearts .h9  { top: 18px; left: 296px; }
+    .envelope-hearts .h10 { top: 18px; left: 330px; }
+    .envelope-hearts .h11 { top: 18px; left: 364px; }
+    .envelope-hearts .h12 { top: 18px; left: 398px; }
+    .envelope-hearts .h13 { top: 18px; left: 432px; }
+    .envelope-hearts .h14 { top: 18px; left: 466px; }
+    .envelope-hearts .h15 { top: 18px; left: 500px; }
 
-    .heart {
-      font-size: 15px;
-    }
+    .envelope-hearts .h16 { top: 52px; left: 44px; }
+    .envelope-hearts .h17 { top: 58px; left: 98px; }
+    .envelope-hearts .h18 { top: 66px; left: 152px; }
+    .envelope-hearts .h19 { top: 50px; left: 206px; }
+    .envelope-hearts .h20 { top: 64px; left: 260px; }
+    .envelope-hearts .h21 { top: 52px; left: 314px; }
+    .envelope-hearts .h22 { top: 68px; left: 368px; }
+    .envelope-hearts .h23 { top: 56px; left: 422px; }
+    .envelope-hearts .h24 { top: 64px; left: 476px; }
 
+    .envelope-hearts .h25 { top: 98px; left: 26px; }
+    .envelope-hearts .h26 { top: 114px; left: 72px; }
+    .envelope-hearts .h27 { top: 128px; left: 118px; }
+    .envelope-hearts .h28 { top: 144px; left: 164px; }
+    .envelope-hearts .h29 { top: 136px; left: 210px; }
+    .envelope-hearts .h30 { top: 150px; left: 256px; }
+    .envelope-hearts .h31 { top: 138px; left: 302px; }
+    .envelope-hearts .h32 { top: 152px; left: 348px; }
+    .envelope-hearts .h33 { top: 136px; left: 394px; }
+    .envelope-hearts .h34 { top: 126px; left: 440px; }
+    .envelope-hearts .h35 { top: 110px; left: 486px; }
 
-    .spark {
-      font-size: 14px;
-    }
+    .envelope-hearts .h36 { top: 182px; left: 52px; }
+    .envelope-hearts .h37 { top: 194px; left: 106px; }
+    .envelope-hearts .h38 { top: 208px; left: 160px; }
+    .envelope-hearts .h39 { top: 196px; left: 214px; }
+    .envelope-hearts .h40 { top: 210px; left: 268px; }
+    .envelope-hearts .h41 { top: 198px; left: 322px; }
+    .envelope-hearts .h42 { top: 210px; left: 376px; }
+    .envelope-hearts .h43 { top: 196px; left: 430px; }
+    .envelope-hearts .h44 { top: 184px; left: 484px; }
 
-
-    .flower {
-      font-size: 18px;
-
-      opacity: 0.62;
-    }
-
-
-    .d1 {
-      top: 24px;
-      left: 62px;
-    }
-
-
-    .d2 {
-      top: 25px;
-      right: 62px;
-    }
-
-
-    .d3 {
-      top: 31px;
-      left: 50%;
-
-      transform:
-        translateX(-50%);
-    }
-
-
-    .d4 {
-      top: 58px;
-      left: 118px;
-    }
-
-
-    .d5 {
-      top: 60px;
-      right: 118px;
-    }
-
-
-    .d6 {
-      top: 47px;
-      left: 28%;
-    }
-
-
-    .d7 {
-      top: 47px;
-      right: 28%;
-    }
-
-
-    .d8 {
-      top: 76px;
-      left: 50%;
-
-      transform:
-        translateX(-50%);
-    }
-
-
-    .d9 {
-      top: 17px;
-      left: 24px;
-    }
-
-
-    .d10 {
-      top: 17px;
-      right: 24px;
-    }
-
-
-    /* =========================
-       MÜHÜR
-       ========================= */
+    .envelope-hearts .h45 { bottom: 62px; left: 34px; }
+    .envelope-hearts .h46 { bottom: 48px; left: 84px; }
+    .envelope-hearts .h47 { bottom: 38px; left: 134px; }
+    .envelope-hearts .h48 { bottom: 52px; left: 184px; }
+    .envelope-hearts .h49 { bottom: 34px; left: 234px; }
+    .envelope-hearts .h50 { bottom: 50px; left: 284px; }
+    .envelope-hearts .h51 { bottom: 34px; left: 334px; }
+    .envelope-hearts .h52 { bottom: 50px; left: 384px; }
+    .envelope-hearts .h53 { bottom: 38px; left: 434px; }
+    .envelope-hearts .h54 { bottom: 52px; left: 484px; }
 
     .seal {
       position: absolute;
-
       top: 50%;
-
       left: 50%;
-
-      z-index: 6;
-
+      z-index: 7;
       width: 78px;
-
       height: 78px;
-
       display: grid;
-
       place-items: center;
-
       border-radius: 50%;
-
       background:
         linear-gradient(
           145deg,
           #d6b15b,
           #aa7c2e
         );
-
       color: white;
-
       font-size: 27px;
-
       font-weight: 600;
-
       letter-spacing: 2px;
-
+      text-transform: uppercase;
       box-shadow:
         0 11px 24px
         rgba(111, 76, 22, 0.35);
-
-      transform:
-        translate(-50%, -50%);
-
+      transform: translate(-50%, -50%);
       transition:
-        opacity
-        0.35s
-        ease,
-
-        transform
-        0.35s
-        ease;
+        opacity 0.35s ease,
+        transform 0.35s ease;
     }
-
 
     .seal::before {
       content: "";
-
       position: absolute;
-
       inset: -12px;
-
-      border:
-        2px solid
-        rgba(231, 197, 112, 0.7);
-
+      border: 2px solid rgba(231, 197, 112, 0.7);
       border-radius: 50%;
-
       opacity: 0;
-
       box-shadow:
-        0 0 12px
-        rgba(231, 197, 112, 0.55),
-
-        0 0 28px
-        rgba(197, 155, 71, 0.35);
-
-      transform:
-        scale(0.7);
-
+        0 0 12px rgba(231, 197, 112, 0.55),
+        0 0 28px rgba(197, 155, 71, 0.35);
+      transform: scale(0.7);
       pointer-events: none;
     }
 
-
-    .envelope.open
-    .seal::before {
+    .envelope.open .seal::before {
       animation:
         sealLightBurst
         0.85s
@@ -709,14 +447,10 @@
         forwards;
     }
 
-
     @keyframes sealLightBurst {
-
       0% {
         opacity: 0;
-
-        transform:
-          scale(0.65);
+        transform: scale(0.65);
       }
 
       25% {
@@ -725,15 +459,11 @@
 
       100% {
         opacity: 0;
-
-        transform:
-          scale(2.2);
+        transform: scale(2.2);
       }
     }
 
-
-    .envelope.open
-    .seal {
+    .envelope.open .seal {
       animation:
         sealFlash
         0.55s
@@ -741,18 +471,14 @@
         forwards;
     }
 
-
     @keyframes sealFlash {
-
       0% {
-        filter:
-          brightness(1);
+        filter: brightness(1);
       }
 
       35% {
         filter:
           brightness(1.8)
-
           drop-shadow(
             0 0 18px
             rgba(255, 220, 130, 0.9)
@@ -760,119 +486,50 @@
       }
 
       100% {
-        filter:
-          brightness(1);
+        filter: brightness(1);
       }
     }
 
-
-    /* =========================
-       ZARF AÇILMA ANİMASYONU
-       ========================= */
-
-    .envelope.open
-    .envelope-flap {
+    .envelope.open .envelope-flap {
       z-index: 1;
-
-      transform:
-        rotateX(180deg);
-
+      transform: rotateX(180deg);
       transition:
-        transform
-        1.35s
-        cubic-bezier(0.16, 1, 0.3, 1),
-
-        z-index
-        0s
-        linear
-        0.7s;
+        transform 1.35s cubic-bezier(0.16, 1, 0.3, 1),
+        z-index 0s linear 0.7s;
     }
 
-
-    .envelope.open
-    .letter {
-      z-index: 7;
-
-      width:
-        min(73%, 390px);
-
-      transform:
-        translate(-50%, -52%);
-
-      opacity: 1;
-
-      transition:
-        transform
-        1.65s
-        cubic-bezier(0.16, 1, 0.3, 1),
-
-        width
-        1.25s
-        ease,
-
-        opacity
-        0.8s
-        ease;
-
-      transition-delay:
-        0.55s;
-    }
-
-
-    .envelope.open
-    .envelope-front::before {
+    .envelope.open .envelope-front::before {
       transform:
         translateX(-10px)
         translateY(6px)
         rotate(-3deg);
-
-      filter:
-        brightness(0.98);
+      filter: brightness(0.98);
     }
 
-
-    .envelope.open
-    .envelope-front::after {
+    .envelope.open .envelope-front::after {
       transform:
         translateX(10px)
         translateY(6px)
         rotate(3deg);
-
-      filter:
-        brightness(0.98);
+      filter: brightness(0.98);
     }
 
-
-    .envelope.open
-    .seal {
+    .envelope.open .seal {
       opacity: 0;
-
       pointer-events: none;
-
       transform:
         translate(-50%, -50%)
         scale(0.25)
         rotate(-20deg);
     }
 
-
-    /* =========================
-       DAVETİYE ALTIN IŞIĞI
-       ========================= */
-
     .letter::after {
       content: "";
-
       position: absolute;
-
       top: -30%;
-
       left: -75%;
-
       width: 38%;
-
       height: 160%;
-
       background:
         linear-gradient(
           110deg,
@@ -882,20 +539,13 @@
           rgba(255, 223, 140, 0.22) 70%,
           transparent 100%
         );
-
-      transform:
-        skewX(-18deg);
-
+      transform: skewX(-18deg);
       opacity: 0;
-
       pointer-events: none;
-
       z-index: 10;
     }
 
-
-    .envelope.open
-    .letter::after {
+    .envelope.open .letter::after {
       animation:
         invitationGoldSweep
         1.45s
@@ -904,12 +554,9 @@
         forwards;
     }
 
-
     @keyframes invitationGoldSweep {
-
       0% {
         left: -75%;
-
         opacity: 0;
       }
 
@@ -923,33 +570,20 @@
 
       100% {
         left: 140%;
-
         opacity: 0;
       }
     }
 
-
-    /* =========================
-       ZARF ARKASI IŞIK
-       ========================= */
-
     .envelope::before {
       content: "";
-
       position: absolute;
-
       left: 50%;
-
       top: 45%;
-
       width: 135%;
-
       height: 145%;
-
       transform:
         translate(-50%, -50%)
         scale(0.75);
-
       background:
         radial-gradient(
           ellipse at center,
@@ -958,592 +592,342 @@
           rgba(197, 155, 71, 0.08) 58%,
           transparent 75%
         );
-
-      filter:
-        blur(12px);
-
+      filter: blur(12px);
       opacity: 0;
-
       pointer-events: none;
-
       z-index: 0;
-
       transition:
-        opacity
-        1.2s
-        ease,
-
-        transform
-        1.6s
-        cubic-bezier(0.16, 1, 0.3, 1);
+        opacity 1.2s ease,
+        transform 1.6s cubic-bezier(0.16, 1, 0.3, 1);
     }
-
 
     .envelope.open::before {
       opacity: 1;
-
       transform:
         translate(-50%, -50%)
         scale(1);
     }
 
-
-    /* =========================
-       BUTON
-       ========================= */
+    .envelope.open .letter {
+      position: fixed;
+      left: 50%;
+      top: 50%;
+      bottom: auto;
+      width: min(86vw, 430px);
+      max-width: 430px;
+      transform: translate(-50%, -50%);
+      opacity: 1;
+      z-index: 1001;
+      transition:
+        transform 1.2s cubic-bezier(0.16, 1, 0.3, 1),
+        width 0.8s ease,
+        opacity 0.8s ease;
+      transition-delay: 0.45s;
+    }
 
     .open-button {
       position: relative;
-
       z-index: 20;
-
       min-width: 210px;
-
       margin-top: 60px;
-
-      padding:
-        16px 34px;
-
+      padding: 16px 34px;
       border: none;
-
       border-radius: 999px;
-
       background:
         linear-gradient(
           145deg,
           var(--green),
           var(--green-dark)
         );
-
       color: white;
-
-      font-size:
-        clamp(23px, 6vw, 30px);
-
+      font-size: clamp(23px, 6vw, 30px);
       box-shadow:
         0 13px 28px
         rgba(69, 87, 59, 0.25);
-
       cursor: pointer;
-
-      touch-action:
-        manipulation;
-
-      -webkit-tap-highlight-color:
-        transparent;
-
+      touch-action: manipulation;
+      -webkit-tap-highlight-color: transparent;
       transition:
-        transform
-        0.2s
-        ease,
-
-        box-shadow
-        0.2s
-        ease;
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
     }
-
 
     .open-button:active {
-      transform:
-        scale(0.97);
+      transform: scale(0.97);
     }
-
-
-    /* =========================
-       DETAYLAR
-       ========================= */
 
     .details {
-      width:
-        min(92%, 720px);
-
-      margin:
-        0 auto;
-
-      padding:
-        20px 0 80px;
-
+      width: min(92%, 720px);
+      margin: 0 auto;
+      padding: 20px 0 80px;
       opacity: 0;
-
       visibility: hidden;
-
-      transform:
-        translateY(34px);
-
+      transform: translateY(34px);
       transition:
-        opacity
-        0.75s
-        ease,
-
-        transform
-        0.75s
-        ease,
-
-        visibility
-        0.75s;
+        opacity 0.75s ease,
+        transform 0.75s ease,
+        visibility 0.75s;
     }
-
 
     .details.visible {
       opacity: 1;
-
       visibility: visible;
-
-      transform:
-        translateY(0);
+      transform: translateY(0);
     }
-
 
     .card {
       border:
         1px solid
         rgba(197, 155, 71, 0.25);
-
       border-radius: 24px;
-
       background:
         rgba(255, 253, 248, 0.93);
-
       box-shadow:
         0 18px 38px
         rgba(79, 63, 42, 0.12);
     }
 
-
     .countdown-card {
-      padding:
-        24px 14px;
-
+      padding: 24px 14px;
       text-align: center;
     }
 
-
     .card-title {
       margin-bottom: 17px;
-
       color: var(--gold);
-
       font-size: 20px;
-
       font-weight: 600;
-
       letter-spacing: 0.07em;
-
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
-
 
     .countdown {
       display: grid;
-
-      grid-template-columns:
-        repeat(4, 1fr);
-
+      grid-template-columns: repeat(4, 1fr);
       gap: 8px;
     }
 
-
     .time-box {
-      padding:
-        14px 4px;
-
+      padding: 14px 4px;
       border-radius: 16px;
-
-      background:
-        #f5eddf;
+      background: #f5eddf;
     }
-
 
     .time-box strong {
       display: block;
-
-      color:
-        var(--green-dark);
-
-      font-size:
-        clamp(25px, 8vw, 42px);
-
+      color: var(--green-dark);
+      font-size: clamp(25px, 8vw, 42px);
       line-height: 1;
     }
 
-
     .time-box span {
       display: block;
-
       margin-top: 7px;
-
-      font-size:
-        clamp(12px, 3.6vw, 16px);
+      font-size: clamp(12px, 3.6vw, 16px);
     }
-
 
     .information-card {
       margin-top: 20px;
-
-      padding:
-        8px 20px;
+      padding: 8px 20px;
     }
-
 
     .information-item {
       min-height: 84px;
-
       display: flex;
-
       align-items: center;
-
       gap: 15px;
-
       border-bottom:
         1px solid
         rgba(197, 155, 71, 0.18);
     }
 
-
     .information-item:last-child {
       border-bottom: none;
     }
 
-
     .information-icon {
       width: 46px;
-
       height: 46px;
-
       display: grid;
-
       place-items: center;
-
       flex-shrink: 0;
-
       border-radius: 50%;
-
-      background:
-        #f3e7cf;
-
+      background: #f3e7cf;
       font-size: 22px;
     }
 
-
     .information-item small {
       display: block;
-
-      color:
-        rgba(62, 55, 47, 0.62);
-
+      color: rgba(62, 55, 47, 0.62);
       font-size: 15px;
     }
 
-
     .information-item strong {
       display: block;
-
-      font-size:
-        clamp(19px, 5vw, 24px);
+      font-size: clamp(19px, 5vw, 24px);
     }
-
 
     .action-buttons {
       margin-top: 22px;
-
       display: grid;
-
       gap: 12px;
     }
 
-
     .action-button {
       min-height: 60px;
-
-      padding:
-        13px 20px;
-
+      padding: 13px 20px;
       display: flex;
-
       align-items: center;
-
       justify-content: center;
-
       border: none;
-
       border-radius: 999px;
-
-      background:
-        var(--green);
-
+      background: var(--green);
       color: white;
-
       text-decoration: none;
-
       font-size: 21px;
-
       box-shadow:
         0 10px 22px
         rgba(69, 87, 59, 0.18);
-
       cursor: pointer;
-
-      -webkit-tap-highlight-color:
-        transparent;
+      -webkit-tap-highlight-color: transparent;
     }
-
 
     .action-button:active {
-      transform:
-        scale(0.98);
+      transform: scale(0.98);
     }
-
-
-    /* =========================
-       ALT YAZI
-       ========================= */
 
     .closing-text {
       margin-top: 44px;
-
       text-align: center;
-
-      color:
-        rgba(62, 55, 47, 0.68);
-
+      color: rgba(62, 55, 47, 0.68);
       font-size: 20px;
-
-      letter-spacing:
-        0.06em;
+      letter-spacing: 0.06em;
     }
-
 
     .signature {
       margin-top: 8px;
-
       text-align: center;
-
       color: var(--gold);
-
-      font-family:
-        "Cormorant Garamond",
-        serif;
-
-      font-size:
-        clamp(34px, 9vw, 48px);
-
+      font-size: clamp(34px, 9vw, 48px);
       font-weight: 500;
-
-      letter-spacing:
-        0.02em;
-
+      letter-spacing: 0.02em;
       line-height: 1.1;
     }
 
-
     .signature .signature-initial {
       font-size: 1.28em;
-
       font-weight: 600;
     }
 
-
     .signature .signature-and {
-      margin:
-        0 8px;
-
-      font-family:
-        "Great Vibes",
-        cursive;
-
-      font-size:
-        1.15em;
-
+      margin: 0 8px;
+      font-family: "Great Vibes", cursive;
+      font-size: 1.15em;
       font-weight: 400;
     }
 
-
     .signature-decoration {
       margin-top: 15px;
-
       text-align: center;
-
-      color:
-        rgba(197, 155, 71, 0.70);
-
+      color: rgba(197, 155, 71, 0.70);
       font-size: 17px;
-
-      letter-spacing:
-        8px;
+      letter-spacing: 8px;
     }
-
-
-    /* =========================
-       KONFETİ
-       ========================= */
 
     .confetti-container {
       position: fixed;
-
       inset: 0;
-
       z-index: 50;
-
       overflow: hidden;
-
       pointer-events: none;
     }
 
-
     .confetti {
       position: absolute;
-
       top: -20px;
-
       width: 9px;
-
       height: 15px;
-
       border-radius: 2px;
-
       animation:
         confettiFall
         linear
         forwards;
     }
 
-
     @keyframes confettiFall {
-
       to {
         opacity: 0;
-
         transform:
           translateY(110vh)
           rotate(720deg);
       }
     }
 
-
-    /* =========================
-       TAM EKRAN DAVETİYE
-       ========================= */
-
     .image-modal {
       position: fixed;
-
       inset: 0;
-
       z-index: 9999;
-
       display: none;
-
       align-items: center;
-
       justify-content: center;
-
       padding: 20px;
-
-      background:
-        rgba(0, 0, 0, 0.92);
+      background: rgba(0, 0, 0, 0.92);
     }
-
 
     .image-modal.active {
       display: flex;
     }
 
-
     .image-modal img {
       max-width: 94vw;
-
       max-height: 90vh;
-
       object-fit: contain;
-
       border-radius: 12px;
+      background: white;
     }
-
 
     .modal-close {
       position: absolute;
-
-      top:
-        max(
-          18px,
-          env(safe-area-inset-top)
-        );
-
+      top: max(18px, env(safe-area-inset-top));
       right: 18px;
-
       width: 48px;
-
       height: 48px;
-
       border: none;
-
       border-radius: 50%;
-
-      background:
-        rgba(255, 255, 255, 0.92);
-
+      background: rgba(255, 255, 255, 0.92);
       color: #222;
-
       font-size: 34px;
-
       line-height: 1;
-
       cursor: pointer;
     }
-
 
     #invitationImage {
       cursor: zoom-in;
     }
 
-
-    /* =========================
-       PARILTI
-       ========================= */
-
     .sparkle-container {
       position: absolute;
-
       inset: -30px;
-
       z-index: 15;
-
       pointer-events: none;
-
       overflow: visible;
     }
 
-
     .sparkle {
       position: absolute;
-
       left: 50%;
-
       top: 50%;
-
       width: 4px;
-
       height: 4px;
-
       border-radius: 50%;
-
-      background:
-        #f4d77b;
-
+      background: #f4d77b;
       box-shadow:
-        0 0 8px
-        rgba(244, 215, 123, 0.95),
-
-        0 0 16px
-        rgba(197, 155, 71, 0.75);
-
+        0 0 8px rgba(244, 215, 123, 0.95),
+        0 0 16px rgba(197, 155, 71, 0.75);
       opacity: 0;
-
       transform:
         translate(-50%, -50%)
         scale(0);
-
       animation:
         sparkleBurst
         1.5s
@@ -1551,12 +935,9 @@
         forwards;
     }
 
-
     @keyframes sparkleBurst {
-
       0% {
         opacity: 0;
-
         transform:
           translate(-50%, -50%)
           scale(0);
@@ -1568,7 +949,6 @@
 
       100% {
         opacity: 0;
-
         transform:
           translate(
             calc(-50% + var(--sparkle-x)),
@@ -1578,40 +958,26 @@
       }
     }
 
-
-    /* =========================
-       YAPRAK EFEKTİ
-       ========================= */
-
     .leaf {
       position: absolute;
-
       left: 50%;
-
       top: 50%;
-
       width: 26px;
-
       height: 13px;
-
       border-radius:
         100% 0 100% 0 /
         100% 0 100% 0;
-
       background:
         linear-gradient(
           135deg,
           #7f936f,
           #5d704f
         );
-
       opacity: 0;
-
       transform:
         translate(-50%, -50%)
         rotate(0deg)
         scale(0.4);
-
       animation:
         leafBurst
         1.9s
@@ -1619,37 +985,23 @@
         forwards;
     }
 
-
     .leaf::after {
       content: "";
-
       position: absolute;
-
       left: 3px;
-
       top: 50%;
-
       width: 20px;
-
       height: 1px;
-
-      background:
-        rgba(255, 255, 255, 0.55);
-
+      background: rgba(255, 255, 255, 0.55);
       transform:
         translateY(-50%)
         rotate(-5deg);
-
-      border-radius:
-        999px;
+      border-radius: 999px;
     }
 
-
     @keyframes leafBurst {
-
       0% {
         opacity: 0;
-
         transform:
           translate(-50%, -50%)
           rotate(0deg)
@@ -1662,7 +1014,6 @@
 
       100% {
         opacity: 0;
-
         transform:
           translate(
             calc(-50% + var(--leaf-x)),
@@ -1673,16 +1024,9 @@
       }
     }
 
-
-    /* =========================
-       TABLET / PC
-       ========================= */
-
     @media (min-width: 680px) {
-
       .action-buttons {
-        grid-template-columns:
-          repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .action-button {
@@ -1690,402 +1034,243 @@
       }
     }
 
-
-    /* =========================
-       TELEFON
-       ========================= */
-
     @media (max-width: 600px) {
-
       .hero {
         padding-top: 32px;
       }
-
 
       .envelope-stage {
         padding-top: 60px;
       }
 
-
       .envelope {
         width: 93vw;
       }
 
-
       .seal {
         width: 70px;
-
         height: 70px;
-
         font-size: 30px;
       }
 
-
-      .envelope.open
-      .letter {
-        width:
-          min(75%, 345px);
-
-        transform:
-          translate(-50%, -48%);
-
-        transition-delay:
-          0.55s;
+      .envelope.open .letter {
+        width: min(90vw, 380px);
       }
-
 
       .open-button {
         margin-top: 60px;
       }
 
-
-      .d1 {
-        left: 44px;
-      }
-
-
-      .d2 {
-        right: 44px;
-      }
-
-
-      .d4 {
-        left: 90px;
-      }
-
-
-      .d5 {
-        right: 90px;
+      .envelope-hearts span {
+        font-size: 10px;
       }
     }
 
-
     @media (prefers-reduced-motion: reduce) {
-
       html {
         scroll-behavior: auto;
       }
 
-
       *,
       *::before,
       *::after {
-        animation-duration:
-          0.01ms !important;
-
-        animation-iteration-count:
-          1 !important;
-
-        transition-duration:
-          0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
       }
     }
-
   </style>
 </head>
 
-
 <body>
 
-  <div class="background"></div>
-
   <div class="particles"></div>
-
+  <div
+    class="invitation-backdrop"
+    id="invitationBackdrop">
+  </div>
 
   <main>
 
-
     <section class="hero">
 
-
       <p class="couple-title">
-
         <span class="initial">Z</span>eynep
-
         <span class="ampersand">&amp;</span>
-
         <span class="initial">A</span>hmet
-
       </p>
-
 
       <h1>
         Nikah Davetiyesi
       </h1>
 
-
       <p class="intro">
-
         Bu özel günümüzde sizleri de aramızda görmekten mutluluk duyarız.
-
       </p>
 
-
       <div class="envelope-stage">
-
 
         <div
           class="envelope"
           id="envelope">
-
 
           <div
             class="sparkle-container"
             id="sparkleContainer">
           </div>
 
-
-          <div
-            class="envelope-back">
-          </div>
-
+          <div class="envelope-back"></div>
 
           <div class="letter">
-
             <img
               id="invitationImage"
               src="davetiye.png.PNG"
               alt="Zeynep ve Ahmet nikah davetiyesi">
-
           </div>
 
+          <div class="envelope-front"></div>
+          <div class="envelope-flap"></div>
 
-          <div
-            class="envelope-front">
+          <div class="envelope-hearts" aria-hidden="true">
+            <span class="h1">♥</span>
+            <span class="h2">♥</span>
+            <span class="h3">♥</span>
+            <span class="h4">♥</span>
+            <span class="h5">♥</span>
+            <span class="h6">♥</span>
+            <span class="h7">♥</span>
+            <span class="h8">♥</span>
+            <span class="h9">♥</span>
+            <span class="h10">♥</span>
+            <span class="h11">♥</span>
+            <span class="h12">♥</span>
+            <span class="h13">♥</span>
+            <span class="h14">♥</span>
+            <span class="h15">♥</span>
+            <span class="h16">♥</span>
+            <span class="h17">♥</span>
+            <span class="h18">♥</span>
+            <span class="h19">♥</span>
+            <span class="h20">♥</span>
+            <span class="h21">♥</span>
+            <span class="h22">♥</span>
+            <span class="h23">♥</span>
+            <span class="h24">♥</span>
+            <span class="h25">♥</span>
+            <span class="h26">♥</span>
+            <span class="h27">♥</span>
+            <span class="h28">♥</span>
+            <span class="h29">♥</span>
+            <span class="h30">♥</span>
+            <span class="h31">♥</span>
+            <span class="h32">♥</span>
+            <span class="h33">♥</span>
+            <span class="h34">♥</span>
+            <span class="h35">♥</span>
+            <span class="h36">♥</span>
+            <span class="h37">♥</span>
+            <span class="h38">♥</span>
+            <span class="h39">♥</span>
+            <span class="h40">♥</span>
+            <span class="h41">♥</span>
+            <span class="h42">♥</span>
+            <span class="h43">♥</span>
+            <span class="h44">♥</span>
+            <span class="h45">♥</span>
+            <span class="h46">♥</span>
+            <span class="h47">♥</span>
+            <span class="h48">♥</span>
+            <span class="h49">♥</span>
+            <span class="h50">♥</span>
+            <span class="h51">♥</span>
+            <span class="h52">♥</span>
+            <span class="h53">♥</span>
+            <span class="h54">♥</span>
           </div>
-
-
-          <div
-            class="envelope-flap">
-          </div>
-
 
           <div class="seal">
             ZA
           </div>
 
-
-          <div class="envelope-decor">
-
-            <span class="decor heart d1">
-              ♥
-            </span>
-
-            <span class="decor heart d2">
-              ♥
-            </span>
-
-            <span class="decor spark d3">
-              ✦
-            </span>
-
-            <span class="decor spark d4">
-              ✧
-            </span>
-
-            <span class="decor heart d5">
-              ♥
-            </span>
-
-            <span class="decor spark d6">
-              ✦
-            </span>
-
-            <span class="decor spark d7">
-              ✦
-            </span>
-
-            <span class="decor heart d8">
-              ♥
-            </span>
-
-            <span class="decor flower d9">
-              ❦
-            </span>
-
-            <span class="decor flower d10">
-              ❦
-            </span>
-
-          </div>
-
-
         </div>
-
 
         <button
           type="button"
           class="open-button"
           id="openButton">
-
           Zarfı Aç
-
         </button>
-
 
       </div>
 
-
     </section>
-
 
     <section
       class="details"
       id="details"
       aria-hidden="true">
 
-
-      <div
-        class="card countdown-card">
-
+      <div class="card countdown-card">
 
         <p class="card-title">
           Büyük güne kalan
         </p>
 
-
         <div class="countdown">
 
-
           <div class="time-box">
-
-            <strong id="days">
-              00
-            </strong>
-
-            <span>
-              Gün
-            </span>
-
+            <strong id="days">00</strong>
+            <span>Gün</span>
           </div>
 
-
           <div class="time-box">
-
-            <strong id="hours">
-              00
-            </strong>
-
-            <span>
-              Saat
-            </span>
-
+            <strong id="hours">00</strong>
+            <span>Saat</span>
           </div>
 
-
           <div class="time-box">
-
-            <strong id="minutes">
-              00
-            </strong>
-
-            <span>
-              Dakika
-            </span>
-
+            <strong id="minutes">00</strong>
+            <span>Dakika</span>
           </div>
 
-
           <div class="time-box">
-
-            <strong id="seconds">
-              00
-            </strong>
-
-            <span>
-              Saniye
-            </span>
-
+            <strong id="seconds">00</strong>
+            <span>Saniye</span>
           </div>
-
 
         </div>
-
 
       </div>
 
-
-      <div
-        class="card information-card">
-
+      <div class="card information-card">
 
         <div class="information-item">
-
-
-          <span class="information-icon">
-            📅
-          </span>
-
-
+          <span class="information-icon">📅</span>
           <div>
-
-            <small>
-              Tarih
-            </small>
-
-            <strong>
-              4 Eylül 2026
-            </strong>
-
+            <small>Tarih</small>
+            <strong>4 Eylül 2026</strong>
           </div>
-
-
         </div>
-
 
         <div class="information-item">
-
-
-          <span class="information-icon">
-            🕞
-          </span>
-
-
+          <span class="information-icon">🕞</span>
           <div>
-
-            <small>
-              Saat
-            </small>
-
-            <strong>
-              15:30
-            </strong>
-
+            <small>Saat</small>
+            <strong>15:30</strong>
           </div>
-
-
         </div>
-
 
         <div class="information-item">
-
-
-          <span class="information-icon">
-            📍
-          </span>
-
-
+          <span class="information-icon">📍</span>
           <div>
-
-            <small>
-              Yer
-            </small>
-
-            <strong>
-              Bornova Nikah Salonu
-            </strong>
-
+            <small>Yer</small>
+            <strong>Bornova Nikah Salonu</strong>
           </div>
-
-
         </div>
-
 
       </div>
-
 
       <div class="action-buttons">
-
 
         <a
           class="action-button"
@@ -2097,7 +1282,6 @@
 
         </a>
 
-
         <button
           type="button"
           class="action-button"
@@ -2107,156 +1291,134 @@
 
         </button>
 
-
       </div>
-
 
       <p class="closing-text">
         Sevgiyle bekliyoruz
       </p>
 
-
       <p class="signature">
-
         <span class="signature-initial">Z</span>eynep
-
         <span class="signature-and">&amp;</span>
-
         <span class="signature-initial">A</span>hmet
-
       </p>
-
 
       <div
         class="signature-decoration"
         aria-hidden="true">
-
         ✦ ♥ ✦
-
       </div>
-
 
     </section>
 
-
   </main>
-
 
   <div
     class="confetti-container"
     id="confettiContainer">
   </div>
 
-
   <div
     class="image-modal"
     id="imageModal">
-
 
     <button
       type="button"
       class="modal-close"
       id="modalClose"
       aria-label="Görseli kapat">
-
       ×
-
     </button>
-
 
     <img
       src="davetiye.png.PNG"
       alt="Zeynep ve Ahmet nikah davetiyesi tam ekran">
 
-
   </div>
 
-
   <script>
-
     document.addEventListener(
       "DOMContentLoaded",
       function () {
-
 
         const envelope =
           document.getElementById(
             "envelope"
           );
 
-
         const openButton =
           document.getElementById(
             "openButton"
           );
-
 
         const details =
           document.getElementById(
             "details"
           );
 
-
         const calendarButton =
           document.getElementById(
             "calendarButton"
           );
-
 
         const confettiContainer =
           document.getElementById(
             "confettiContainer"
           );
 
-
         const sparkleContainer =
           document.getElementById(
             "sparkleContainer"
           );
-
 
         const invitationImage =
           document.getElementById(
             "invitationImage"
           );
 
-
         const imageModal =
           document.getElementById(
             "imageModal"
           );
-
 
         const modalClose =
           document.getElementById(
             "modalClose"
           );
 
+        const invitationBackdrop =
+          document.getElementById(
+            "invitationBackdrop"
+          );
 
         let isOpen = false;
-
         let confettiPlayed = false;
-
 
         openButton.addEventListener(
           "click",
           function () {
 
-
             isOpen = !isOpen;
-
 
             envelope.classList.toggle(
               "open",
               isOpen
             );
 
-
             details.classList.toggle(
               "visible",
               isOpen
             );
 
+            invitationBackdrop.classList.toggle(
+              "active",
+              isOpen
+            );
+
+            document.body.classList.toggle(
+              "no-scroll",
+              isOpen
+            );
 
             details.setAttribute(
               "aria-hidden",
@@ -2265,62 +1427,39 @@
                 : "true"
             );
 
-
             openButton.textContent =
               isOpen
                 ? "Zarfı Kapat"
                 : "Zarfı Aç";
 
-
             if (isOpen) {
-
-
               createSparkles();
-
               createLeaves();
 
-
               if (!confettiPlayed) {
-
                 createConfetti();
-
                 confettiPlayed = true;
               }
 
-
               setTimeout(
                 function () {
-
-
                   details.scrollIntoView({
-
-                    behavior:
-                      "smooth",
-
-                    block:
-                      "start"
-
+                    behavior: "smooth",
+                    block: "start"
                   });
-
-
                 },
-                1900
+                1700
               );
-
             }
-
           }
         );
 
-
         function updateCountdown() {
-
 
           const weddingDate =
             new Date(
               "2026-09-04T15:30:00+03:00"
             ).getTime();
-
 
           const difference =
             Math.max(
@@ -2328,91 +1467,45 @@
               weddingDate - Date.now()
             );
 
-
           const days =
             Math.floor(
               difference / 86400000
             );
 
-
           const hours =
             Math.floor(
-              (difference / 3600000)
-              % 24
+              (difference / 3600000) % 24
             );
-
 
           const minutes =
             Math.floor(
-              (difference / 60000)
-              % 60
+              (difference / 60000) % 60
             );
-
 
           const seconds =
             Math.floor(
-              (difference / 1000)
-              % 60
+              (difference / 1000) % 60
             );
 
+          document.getElementById("days").textContent =
+            String(days).padStart(2, "0");
 
-          document.getElementById(
-            "days"
-          ).textContent =
-            String(days)
-              .padStart(
-                2,
-                "0"
-              );
+          document.getElementById("hours").textContent =
+            String(hours).padStart(2, "0");
 
+          document.getElementById("minutes").textContent =
+            String(minutes).padStart(2, "0");
 
-          document.getElementById(
-            "hours"
-          ).textContent =
-            String(hours)
-              .padStart(
-                2,
-                "0"
-              );
-
-
-          document.getElementById(
-            "minutes"
-          ).textContent =
-            String(minutes)
-              .padStart(
-                2,
-                "0"
-              );
-
-
-          document.getElementById(
-            "seconds"
-          ).textContent =
-            String(seconds)
-              .padStart(
-                2,
-                "0"
-              );
-
+          document.getElementById("seconds").textContent =
+            String(seconds).padStart(2, "0");
         }
 
-
         updateCountdown();
-
-
-        setInterval(
-          updateCountdown,
-          1000
-        );
-
+        setInterval(updateCountdown, 1000);
 
         function createSparkles() {
 
-
-          const sparkleCount =
-            18;
-
+          const sparkleCount = 18;
 
           for (
             let i = 0;
@@ -2420,97 +1513,74 @@
             i += 1
           ) {
 
-
             const sparkle =
               document.createElement(
                 "span"
               );
 
-
             sparkle.className =
               "sparkle";
-
 
             const angle =
               Math.random()
               * Math.PI
               * 2;
 
-
             const distance =
               60
               + Math.random()
               * 110;
 
-
             const x =
               Math.cos(angle)
               * distance;
 
-
             const y =
               Math.sin(angle)
               * distance;
-
 
             sparkle.style.setProperty(
               "--sparkle-x",
               x + "px"
             );
 
-
             sparkle.style.setProperty(
               "--sparkle-y",
               y + "px"
             );
-
 
             sparkle.style.animationDelay =
               Math.random()
               * 0.25
               + "s";
 
-
             const size =
               4
               + Math.random()
               * 7;
 
-
             sparkle.style.width =
               size + "px";
-
 
             sparkle.style.height =
               size + "px";
 
-
-            sparkleContainer
-              .appendChild(
-                sparkle
-              );
-
+            sparkleContainer.appendChild(
+              sparkle
+            );
 
             setTimeout(
               function () {
-
                 sparkle.remove();
-
               },
               1900
             );
-
           }
-
         }
-
 
         function createLeaves() {
 
-
-          const leafCount =
-            8;
-
+          const leafCount = 8;
 
           for (
             let i = 0;
@@ -2518,108 +1588,79 @@
             i += 1
           ) {
 
-
             const leaf =
               document.createElement(
                 "span"
               );
 
-
-            leaf.className =
-              "leaf";
-
+            leaf.className = "leaf";
 
             const angle =
               Math.random()
               * Math.PI
               * 2;
 
-
             const distance =
               70
               + Math.random()
               * 100;
 
-
             const x =
               Math.cos(angle)
               * distance;
-
 
             const y =
               Math.sin(angle)
               * distance;
 
-
             const rotate =
               Math.floor(
                 Math.random()
                 * 360
-              )
-              + "deg";
-
+              ) + "deg";
 
             leaf.style.setProperty(
               "--leaf-x",
               x + "px"
             );
 
-
             leaf.style.setProperty(
               "--leaf-y",
               y + "px"
             );
-
 
             leaf.style.setProperty(
               "--leaf-rotate",
               rotate
             );
 
-
             leaf.style.animationDelay =
               Math.random()
               * 0.2
               + "s";
 
-
-            sparkleContainer
-              .appendChild(
-                leaf
-              );
-
+            sparkleContainer.appendChild(
+              leaf
+            );
 
             setTimeout(
               function () {
-
                 leaf.remove();
-
               },
               2200
             );
-
           }
-
         }
-
 
         function createConfetti() {
 
-
           const colors = [
-
             "#c59b47",
-
             "#ead8ae",
-
             "#5d704f",
-
             "#ffffff",
-
             "#d8b86a"
-
           ];
-
 
           for (
             let i = 0;
@@ -2627,22 +1668,18 @@
             i += 1
           ) {
 
-
             const piece =
               document.createElement(
                 "span"
               );
 
-
             piece.className =
               "confetti";
-
 
             piece.style.left =
               Math.random()
               * 100
               + "%";
-
 
             piece.style.backgroundColor =
               colors[
@@ -2652,12 +1689,10 @@
                 )
               ];
 
-
             piece.style.animationDelay =
               Math.random()
               * 1.2
               + "s";
-
 
             piece.style.animationDuration =
               2.8
@@ -2665,204 +1700,139 @@
               * 2
               + "s";
 
-
-            confettiContainer
-              .appendChild(
-                piece
-              );
-
+            confettiContainer.appendChild(
+              piece
+            );
 
             setTimeout(
               function () {
-
                 piece.remove();
-
               },
               5500
             );
-
           }
-
         }
 
+        calendarButton.addEventListener(
+          "click",
+          function () {
 
-        calendarButton
-          .addEventListener(
-            "click",
-            function () {
+            const calendarData = [
+              "BEGIN:VCALENDAR",
+              "VERSION:2.0",
+              "BEGIN:VEVENT",
+              "SUMMARY:Zeynep ve Ahmet Nikah Töreni",
+              "DTSTART:20260904T123000Z",
+              "DTEND:20260904T143000Z",
+              "LOCATION:Bornova Nikah Salonu",
+              "DESCRIPTION:Zeynep ve Ahmet'in nikah töreni",
+              "END:VEVENT",
+              "END:VCALENDAR"
+            ].join("\r\n");
 
-
-              const calendarData = [
-
-                "BEGIN:VCALENDAR",
-
-                "VERSION:2.0",
-
-                "BEGIN:VEVENT",
-
-                "SUMMARY:Zeynep ve Ahmet Nikah Töreni",
-
-                "DTSTART:20260904T123000Z",
-
-                "DTEND:20260904T143000Z",
-
-                "LOCATION:Bornova Nikah Salonu",
-
-                "DESCRIPTION:Zeynep ve Ahmet'in nikah töreni",
-
-                "END:VEVENT",
-
-                "END:VCALENDAR"
-
-              ].join("\r\n");
-
-
-              const calendarBlob =
-                new Blob(
-                  [calendarData],
-                  {
-                    type:
-                      "text/calendar;charset=utf-8"
-                  }
-                );
-
-
-              const calendarUrl =
-                URL.createObjectURL(
-                  calendarBlob
-                );
-
-
-              const downloadLink =
-                document.createElement(
-                  "a"
-                );
-
-
-              downloadLink.href =
-                calendarUrl;
-
-
-              downloadLink.download =
-                "zeynep-ahmet-nikah.ics";
-
-
-              document.body
-                .appendChild(
-                  downloadLink
-                );
-
-
-              downloadLink.click();
-
-
-              downloadLink.remove();
-
-
-              URL.revokeObjectURL(
-                calendarUrl
+            const calendarBlob =
+              new Blob(
+                [calendarData],
+                {
+                  type:
+                    "text/calendar;charset=utf-8"
+                }
               );
 
-            }
-          );
+            const calendarUrl =
+              URL.createObjectURL(
+                calendarBlob
+              );
 
+            const downloadLink =
+              document.createElement(
+                "a"
+              );
 
-        invitationImage
-          .addEventListener(
-            "click",
-            function () {
+            downloadLink.href =
+              calendarUrl;
 
+            downloadLink.download =
+              "zeynep-ahmet-nikah.ics";
 
-              imageModal
-                .classList
-                .add(
-                  "active"
-                );
-
-
-              document.body
-                .style
-                .overflow =
-                "hidden";
-
-            }
-          );
-
-
-        function closeModal() {
-
-
-          imageModal
-            .classList
-            .remove(
-              "active"
+            document.body.appendChild(
+              downloadLink
             );
 
+            downloadLink.click();
+            downloadLink.remove();
 
-          document.body
-            .style
-            .overflow =
-            "";
+            URL.revokeObjectURL(
+              calendarUrl
+            );
+          }
+        );
 
+        invitationImage.addEventListener(
+          "click",
+          function () {
+            imageModal.classList.add(
+              "active"
+            );
+          }
+        );
+
+        function closeModal() {
+          imageModal.classList.remove(
+            "active"
+          );
         }
 
+        modalClose.addEventListener(
+          "click",
+          closeModal
+        );
 
-        modalClose
-          .addEventListener(
-            "click",
-            closeModal
-          );
-
-
-        imageModal
-          .addEventListener(
-            "click",
-            function (event) {
-
-
-              if (
-                event.target
-                === imageModal
-              ) {
-
-                closeModal();
-
-              }
-
+        imageModal.addEventListener(
+          "click",
+          function (event) {
+            if (
+              event.target === imageModal
+            ) {
+              closeModal();
             }
-          );
+          }
+        );
 
-
-        document
-          .addEventListener(
-            "keydown",
-            function (event) {
-
-
-              if (
-                event.key
-                === "Escape"
-                &&
-                imageModal
-                  .classList
-                  .contains(
-                    "active"
-                  )
-              ) {
-
-                closeModal();
-
-              }
-
+        invitationBackdrop.addEventListener(
+          "click",
+          function () {
+            if (isOpen) {
+              openButton.click();
             }
-          );
+          }
+        );
 
+        document.addEventListener(
+          "keydown",
+          function (event) {
 
+            if (
+              event.key === "Escape" &&
+              imageModal.classList.contains(
+                "active"
+              )
+            ) {
+              closeModal();
+              return;
+            }
+
+            if (
+              event.key === "Escape" &&
+              isOpen
+            ) {
+              openButton.click();
+            }
+          }
+        );
       }
     );
-
   </script>
-
 
 </body>
 </html>
