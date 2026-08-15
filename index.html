@@ -61,12 +61,12 @@
     rel="stylesheet">
 
   <style>
+
     :root {
       --cream: #f7f1e6;
       --paper: #fffdf8;
       --gold: #c59b47;
       --gold-dark: #a97d2e;
-      --gold-soft: #ead8ae;
       --green: #5d704f;
       --green-dark: #45583b;
       --text: #3e372f;
@@ -92,11 +92,13 @@
           rgba(197, 155, 71, 0.12),
           transparent 30%
         ),
+
         radial-gradient(
           circle at 80% 75%,
           rgba(93, 112, 79, 0.10),
           transparent 34%
         ),
+
         linear-gradient(
           180deg,
           #fffdf8 0%,
@@ -124,7 +126,7 @@
 
       pointer-events: none;
 
-      opacity: 0.33;
+      opacity: 0.32;
 
       background-image:
         radial-gradient(
@@ -133,9 +135,12 @@
           transparent 1.5px
         );
 
-      background-size:
-        70px 70px;
+      background-size: 70px 70px;
     }
+
+    /* =========================
+       BAŞLIK
+       ========================= */
 
     .hero {
       min-height: 100svh;
@@ -143,7 +148,7 @@
       padding:
         max(34px, env(safe-area-inset-top))
         16px
-        60px;
+        70px;
 
       display: flex;
       flex-direction: column;
@@ -163,6 +168,10 @@
       letter-spacing: 0.03em;
 
       line-height: 1.05;
+
+      text-shadow:
+        0 3px 14px
+        rgba(197, 155, 71, 0.12);
     }
 
     .couple-title .initial {
@@ -179,8 +188,6 @@
         cursive;
 
       font-size: 1.15em;
-
-      font-weight: 400;
     }
 
     h1 {
@@ -206,6 +213,10 @@
 
       line-height: 1.45;
     }
+
+    /* =========================
+       ZARF
+       ========================= */
 
     .envelope-stage {
       width: 100%;
@@ -248,11 +259,15 @@
         rgba(71, 55, 34, 0.22);
     }
 
+    /* =========================
+       DAVETİYE - ZARFIN İÇİNDE
+       ========================= */
+
     .letter {
       position: absolute;
 
       left: 50%;
-      bottom: 4%;
+      bottom: 3%;
 
       width:
         min(56%, 300px);
@@ -261,9 +276,9 @@
 
       overflow: hidden;
 
-      border-radius: 18px;
+      border-radius: 16px;
 
-      background: var(--paper);
+      background: white;
 
       box-shadow:
         0 14px 34px
@@ -276,15 +291,15 @@
 
       transition:
         transform
-        1.1s
-        cubic-bezier(0.22, 1, 0.36, 1),
+        1.45s
+        cubic-bezier(0.16, 1, 0.3, 1),
 
         width
-        0.8s
+        1.1s
         ease,
 
         opacity
-        0.45s
+        0.6s
         ease;
     }
 
@@ -294,44 +309,29 @@
       width: 100%;
       height: auto;
 
-      max-height: 82vh;
-
       object-fit: contain;
 
       background: white;
     }
 
-    .invitation-backdrop {
-      position: fixed;
+    .envelope.open .letter {
+      z-index: 7;
 
-      inset: 0;
+      width:
+        min(74%, 390px);
 
-      z-index: 900;
+      transform:
+        translate(-50%, -48%);
 
-      background:
-        rgba(30, 24, 18, 0.56);
-
-      opacity: 0;
-
-      visibility: hidden;
-
-      transition:
-        opacity
-        0.45s
-        ease,
-
-        visibility
-        0.45s
-        ease;
-
-      pointer-events: none;
-    }
-
-    .invitation-backdrop.active {
       opacity: 1;
-      visibility: visible;
-      pointer-events: auto;
+
+      transition-delay:
+        0.52s;
     }
+
+    /* =========================
+       ZARF ÖNÜ
+       ========================= */
 
     .envelope-front {
       position: absolute;
@@ -398,6 +398,26 @@
         );
     }
 
+    .envelope.open
+    .envelope-front::before {
+      transform:
+        translateX(-10px)
+        translateY(6px)
+        rotate(-3deg);
+    }
+
+    .envelope.open
+    .envelope-front::after {
+      transform:
+        translateX(10px)
+        translateY(6px)
+        rotate(3deg);
+    }
+
+    /* =========================
+       ZARF KAPAĞI
+       ========================= */
+
     .envelope-flap {
       position: absolute;
 
@@ -434,102 +454,127 @@
 
       transition:
         transform
-        1s
+        1.2s
         cubic-bezier(0.22, 1, 0.36, 1),
 
         z-index
         0s
         linear
-        0.5s;
+        0.6s;
+    }
+
+    .envelope.open
+    .envelope-flap {
+      z-index: 1;
+
+      transform:
+        rotateX(180deg);
+    }
+
+    /* =========================
+       KALPLER
+       SADECE ZARFIN İÇİNDE
+       ========================= */
+
+    .heart-mask {
+      position: absolute;
+
+      inset: 0;
+
+      z-index: 6;
+
+      overflow: hidden;
+
+      border-radius: 12px;
+
+      pointer-events: none;
     }
 
     .envelope-hearts {
       position: absolute;
+
       inset: 0;
 
-      z-index: 5;
-
-      pointer-events: none;
+      width: 100%;
+      height: 100%;
     }
 
     .envelope-hearts span {
       position: absolute;
 
       color:
-        rgba(198, 152, 63, 0.92);
+        rgba(193, 145, 51, 0.78);
+
+      font-size: 11px;
+
+      line-height: 1;
 
       text-shadow:
-        0 2px 8px
-        rgba(120, 88, 28, 0.12);
-
-      font-size: 12px;
+        0 2px 7px
+        rgba(111, 76, 22, 0.10);
     }
 
     .envelope-hearts span:nth-child(3n) {
-      font-size: 9px;
-      opacity: 0.72;
+      font-size: 8px;
+      opacity: 0.60;
     }
 
     .envelope-hearts span:nth-child(4n) {
-      font-size: 15px;
-      opacity: 0.82;
+      font-size: 14px;
+      opacity: 0.72;
     }
 
-    .h1  { top: 18px; left: 24px; }
-    .h2  { top: 24px; left: 66px; }
-    .h3  { top: 18px; left: 112px; }
-    .h4  { top: 30px; left: 156px; }
-    .h5  { top: 18px; left: 202px; }
-    .h6  { top: 26px; left: 246px; }
-    .h7  { top: 17px; left: 292px; }
-    .h8  { top: 29px; left: 338px; }
-    .h9  { top: 18px; left: 384px; }
-    .h10 { top: 28px; left: 430px; }
-    .h11 { top: 18px; left: 478px; }
-    .h12 { top: 34px; left: 522px; }
+    .h1 { top: 7%; left: 7%; }
+    .h2 { top: 12%; left: 18%; }
+    .h3 { top: 8%; left: 29%; }
+    .h4 { top: 14%; left: 40%; }
+    .h5 { top: 8%; left: 51%; }
+    .h6 { top: 13%; left: 62%; }
+    .h7 { top: 7%; left: 73%; }
+    .h8 { top: 13%; left: 84%; }
+    .h9 { top: 8%; left: 93%; }
 
-    .h13 { top: 66px; left: 42px; }
-    .h14 { top: 78px; left: 94px; }
-    .h15 { top: 60px; left: 146px; }
-    .h16 { top: 84px; left: 198px; }
-    .h17 { top: 64px; left: 250px; }
-    .h18 { top: 86px; left: 302px; }
-    .h19 { top: 62px; left: 354px; }
-    .h20 { top: 84px; left: 406px; }
-    .h21 { top: 64px; left: 458px; }
-    .h22 { top: 82px; left: 510px; }
+    .h10 { top: 23%; left: 11%; }
+    .h11 { top: 29%; left: 22%; }
+    .h12 { top: 21%; left: 33%; }
+    .h13 { top: 30%; left: 44%; }
+    .h14 { top: 22%; left: 56%; }
+    .h15 { top: 29%; left: 67%; }
+    .h16 { top: 21%; left: 78%; }
+    .h17 { top: 30%; left: 89%; }
 
-    .h23 { top: 120px; left: 30px; }
-    .h24 { top: 134px; left: 80px; }
-    .h25 { top: 120px; left: 130px; }
-    .h26 { top: 142px; left: 180px; }
-    .h27 { top: 124px; left: 230px; }
-    .h28 { top: 146px; left: 280px; }
-    .h29 { top: 124px; left: 330px; }
-    .h30 { top: 144px; left: 380px; }
-    .h31 { top: 122px; left: 430px; }
-    .h32 { top: 142px; left: 480px; }
+    .h18 { top: 41%; left: 7%; }
+    .h19 { top: 48%; left: 17%; }
+    .h20 { top: 40%; left: 28%; }
+    .h21 { top: 50%; left: 39%; }
+    .h22 { top: 41%; left: 50%; }
+    .h23 { top: 49%; left: 61%; }
+    .h24 { top: 40%; left: 72%; }
+    .h25 { top: 49%; left: 83%; }
+    .h26 { top: 42%; left: 93%; }
 
-    .h33 { top: 182px; left: 50px; }
-    .h34 { top: 196px; left: 104px; }
-    .h35 { top: 182px; left: 158px; }
-    .h36 { top: 204px; left: 212px; }
-    .h37 { top: 186px; left: 266px; }
-    .h38 { top: 206px; left: 320px; }
-    .h39 { top: 184px; left: 374px; }
-    .h40 { top: 204px; left: 428px; }
-    .h41 { top: 184px; left: 482px; }
+    .h27 { top: 61%; left: 10%; }
+    .h28 { top: 68%; left: 21%; }
+    .h29 { top: 60%; left: 32%; }
+    .h30 { top: 70%; left: 43%; }
+    .h31 { top: 61%; left: 54%; }
+    .h32 { top: 69%; left: 65%; }
+    .h33 { top: 60%; left: 76%; }
+    .h34 { top: 69%; left: 87%; }
 
-    .h42 { bottom: 72px; left: 34px; }
-    .h43 { bottom: 52px; left: 86px; }
-    .h44 { bottom: 72px; left: 138px; }
-    .h45 { bottom: 50px; left: 190px; }
-    .h46 { bottom: 72px; left: 242px; }
-    .h47 { bottom: 50px; left: 294px; }
-    .h48 { bottom: 72px; left: 346px; }
-    .h49 { bottom: 50px; left: 398px; }
-    .h50 { bottom: 72px; left: 450px; }
-    .h51 { bottom: 50px; left: 502px; }
+    .h35 { top: 81%; left: 7%; }
+    .h36 { top: 88%; left: 18%; }
+    .h37 { top: 80%; left: 29%; }
+    .h38 { top: 89%; left: 40%; }
+    .h39 { top: 80%; left: 51%; }
+    .h40 { top: 88%; left: 62%; }
+    .h41 { top: 80%; left: 73%; }
+    .h42 { top: 88%; left: 84%; }
+    .h43 { top: 81%; left: 93%; }
+
+    /* =========================
+       MÜHÜR
+       ========================= */
 
     .seal {
       position: absolute;
@@ -537,7 +582,7 @@
       top: 50%;
       left: 50%;
 
-      z-index: 7;
+      z-index: 8;
 
       width: 78px;
       height: 78px;
@@ -557,7 +602,6 @@
       color: white;
 
       font-size: 27px;
-
       font-weight: 600;
 
       letter-spacing: 2px;
@@ -603,8 +647,6 @@
 
       transform:
         scale(0.7);
-
-      pointer-events: none;
     }
 
     .envelope.open
@@ -617,6 +659,7 @@
     }
 
     @keyframes sealLightBurst {
+
       0% {
         opacity: 0;
         transform: scale(0.65);
@@ -632,77 +675,7 @@
       }
     }
 
-    .envelope.open
-    .seal {
-      animation:
-        sealFlash
-        0.55s
-        ease-out
-        forwards;
-    }
-
-    @keyframes sealFlash {
-      0% {
-        filter: brightness(1);
-      }
-
-      35% {
-        filter:
-          brightness(1.8)
-
-          drop-shadow(
-            0 0 18px
-            rgba(255, 220, 130, 0.9)
-          );
-      }
-
-      100% {
-        filter: brightness(1);
-      }
-    }
-
-    .envelope.open
-    .envelope-flap {
-      z-index: 1;
-
-      transform:
-        rotateX(180deg);
-
-      transition:
-        transform
-        1.35s
-        cubic-bezier(0.16, 1, 0.3, 1),
-
-        z-index
-        0s
-        linear
-        0.7s;
-    }
-
-    .envelope.open
-    .envelope-front::before {
-      transform:
-        translateX(-10px)
-        translateY(6px)
-        rotate(-3deg);
-
-      filter:
-        brightness(0.98);
-    }
-
-    .envelope.open
-    .envelope-front::after {
-      transform:
-        translateX(10px)
-        translateY(6px)
-        rotate(3deg);
-
-      filter:
-        brightness(0.98);
-    }
-
-    .envelope.open
-    .seal {
+    .envelope.open .seal {
       opacity: 0;
 
       pointer-events: none;
@@ -713,110 +686,89 @@
         rotate(-20deg);
     }
 
-    .envelope.open
-    .letter {
+    /* =========================
+       İLK AÇILIŞTA ORTADAKİ
+       NET DAVETİYE
+       ========================= */
+
+    .opening-preview {
       position: fixed;
 
       left: 50%;
       top: 50%;
 
-      bottom: auto;
+      z-index: 5000;
 
       width:
-        min(88vw, 430px);
+        min(86vw, 420px);
 
-      max-width: 430px;
+      max-height: 84vh;
 
-      max-height: 88vh;
-
-      transform:
-        translate(-50%, -50%);
-
-      opacity: 1;
-
-      z-index: 1001;
-
-      box-shadow:
-        0 28px 65px
-        rgba(0, 0, 0, 0.30);
-
-      transition:
-        transform
-        1.2s
-        cubic-bezier(0.16, 1, 0.3, 1),
-
-        width
-        0.8s
-        ease,
-
-        opacity
-        0.8s
-        ease;
-
-      transition-delay:
-        0.45s;
-    }
-
-    .letter::after {
-      content: "";
-
-      position: absolute;
-
-      top: -30%;
-      left: -75%;
-
-      width: 38%;
-      height: 160%;
-
-      background:
-        linear-gradient(
-          110deg,
-          transparent 0%,
-          rgba(255, 235, 175, 0.10) 30%,
-          rgba(255, 244, 205, 0.80) 50%,
-          rgba(255, 223, 140, 0.22) 70%,
-          transparent 100%
-        );
-
-      transform:
-        skewX(-18deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
       opacity: 0;
 
+      visibility: hidden;
+
       pointer-events: none;
 
-      z-index: 10;
+      transform:
+        translate(-50%, -46%)
+        scale(0.94);
+
+      transition:
+        opacity
+        0.55s
+        ease,
+
+        transform
+        0.8s
+        cubic-bezier(0.16, 1, 0.3, 1),
+
+        visibility
+        0.55s
+        ease;
     }
 
-    .envelope.open
-    .letter::after {
-      animation:
-        invitationGoldSweep
-        1.45s
-        ease-in-out
-        1.15s
-        forwards;
+    .opening-preview.active {
+      opacity: 1;
+
+      visibility: visible;
+
+      pointer-events: auto;
+
+      transform:
+        translate(-50%, -50%)
+        scale(1);
     }
 
-    @keyframes invitationGoldSweep {
-      0% {
-        left: -75%;
-        opacity: 0;
-      }
+    .opening-preview img {
+      display: block;
 
-      20% {
-        opacity: 0.9;
-      }
+      max-width: 100%;
+      max-height: 84vh;
 
-      80% {
-        opacity: 0.75;
-      }
+      width: auto;
+      height: auto;
 
-      100% {
-        left: 140%;
-        opacity: 0;
-      }
+      object-fit: contain;
+
+      border-radius: 16px;
+
+      background: white;
+
+      box-shadow:
+        0 24px 60px
+        rgba(64, 48, 29, 0.25);
+
+      cursor: zoom-in;
     }
+
+    /* =========================
+       ZARF BUTONU
+       ========================= */
 
     .open-button {
       position: relative;
@@ -825,14 +777,14 @@
 
       min-width: 228px;
 
-      margin-top: 60px;
+      margin-top: 68px;
 
       padding:
         17px 38px;
 
       border:
         1px solid
-        rgba(255, 255, 255, 0.30);
+        rgba(255, 255, 255, 0.28);
 
       border-radius: 999px;
 
@@ -866,21 +818,15 @@
 
       -webkit-tap-highlight-color:
         transparent;
-
-      transition:
-        transform
-        0.2s
-        ease,
-
-        box-shadow
-        0.2s
-        ease;
     }
 
     .open-button:active {
-      transform:
-        scale(0.97);
+      transform: scale(0.97);
     }
+
+    /* =========================
+       DETAYLAR
+       ========================= */
 
     .details {
       width:
@@ -906,16 +852,16 @@
 
         transform
         0.75s
-        ease,
-
-        visibility
-        0.75s;
+        ease;
     }
 
     .details.visible {
       opacity: 1;
+
       visibility: visible;
-      transform: translateY(0);
+
+      transform:
+        translateY(0);
     }
 
     .card {
@@ -926,7 +872,7 @@
       border-radius: 26px;
 
       background:
-        rgba(255, 253, 248, 0.95);
+        rgba(255, 253, 248, 0.96);
 
       box-shadow:
         0 18px 38px
@@ -943,8 +889,7 @@
     .card-title {
       margin-bottom: 17px;
 
-      color:
-        var(--gold);
+      color: var(--gold);
 
       font-size: 20px;
 
@@ -953,8 +898,7 @@
       letter-spacing:
         0.07em;
 
-      text-transform:
-        uppercase;
+      text-transform: uppercase;
     }
 
     .countdown {
@@ -1087,7 +1031,10 @@
 
     .action-subtitle {
       margin:
-        4px auto 18px;
+        5px auto 19px;
+
+      padding:
+        0 10px;
 
       text-align: center;
 
@@ -1104,9 +1051,7 @@
     }
 
     .action-button {
-      position: relative;
-
-      min-height: 66px;
+      min-height: 68px;
 
       padding:
         14px 22px;
@@ -1114,7 +1059,6 @@
       display: flex;
 
       align-items: center;
-
       justify-content: center;
 
       gap: 10px;
@@ -1125,24 +1069,12 @@
 
       border-radius: 22px;
 
-      background:
-        linear-gradient(
-          145deg,
-          #657a59,
-          #45583b
-        );
-
       color: white;
 
       text-decoration: none;
 
-      font-size:
-        21px;
-
+      font-size: 21px;
       font-weight: 600;
-
-      letter-spacing:
-        0.01em;
 
       box-shadow:
         0 14px 28px
@@ -1156,23 +1088,14 @@
 
       -webkit-tap-highlight-color:
         transparent;
-
-      transition:
-        transform
-        0.2s
-        ease,
-
-        box-shadow
-        0.2s
-        ease;
     }
 
     .action-button.location {
       background:
         linear-gradient(
           145deg,
-          #637858,
-          #3f5137
+          #657a59,
+          #405237
         );
     }
 
@@ -1180,7 +1103,7 @@
       background:
         linear-gradient(
           145deg,
-          #c9a04d,
+          #d0aa59,
           #a77a2b
         );
     }
@@ -1209,26 +1132,23 @@
 
       text-align: center;
 
-      color:
-        var(--gold);
+      color: var(--gold);
 
       font-size:
         clamp(34px, 9vw, 48px);
 
       font-weight: 500;
 
-      letter-spacing:
-        0.02em;
-
       line-height: 1.1;
     }
 
-    .signature .signature-initial {
+    .signature-initial {
       font-size: 1.28em;
+
       font-weight: 600;
     }
 
-    .signature .signature-and {
+    .signature-and {
       margin: 0 8px;
 
       font-family:
@@ -1236,8 +1156,6 @@
         cursive;
 
       font-size: 1.15em;
-
-      font-weight: 400;
     }
 
     .signature-decoration {
@@ -1250,15 +1168,18 @@
 
       font-size: 17px;
 
-      letter-spacing:
-        8px;
+      letter-spacing: 8px;
     }
+
+    /* =========================
+       KONFETİ
+       ========================= */
 
     .confetti-container {
       position: fixed;
       inset: 0;
 
-      z-index: 50;
+      z-index: 3000;
 
       overflow: hidden;
 
@@ -1291,6 +1212,10 @@
       }
     }
 
+    /* =========================
+       TAM EKRAN DAVETİYE
+       ========================= */
+
     .image-modal {
       position: fixed;
 
@@ -1303,10 +1228,10 @@
       align-items: center;
       justify-content: center;
 
-      padding: 20px;
+      padding: 18px;
 
       background:
-        rgba(0, 0, 0, 0.92);
+        rgba(255, 253, 248, 0.98);
     }
 
     .image-modal.active {
@@ -1314,14 +1239,23 @@
     }
 
     .image-modal img {
-      max-width: 94vw;
-      max-height: 90vh;
+      display: block;
+
+      max-width: 96vw;
+      max-height: 92vh;
+
+      width: auto;
+      height: auto;
 
       object-fit: contain;
 
-      border-radius: 12px;
-
       background: white;
+
+      border-radius: 14px;
+
+      box-shadow:
+        0 20px 60px
+        rgba(64, 48, 29, 0.18);
     }
 
     .modal-close {
@@ -1335,21 +1269,30 @@
 
       right: 18px;
 
+      z-index: 2;
+
       width: 48px;
       height: 48px;
 
-      border: none;
+      border:
+        1px solid
+        rgba(197, 155, 71, 0.22);
 
       border-radius: 50%;
 
       background:
-        rgba(255, 255, 255, 0.92);
+        rgba(255, 255, 255, 0.96);
 
-      color: #222;
+      color:
+        var(--text);
 
       font-size: 34px;
 
       line-height: 1;
+
+      box-shadow:
+        0 8px 22px
+        rgba(62, 55, 47, 0.14);
 
       cursor: pointer;
     }
@@ -1358,16 +1301,18 @@
       cursor: zoom-in;
     }
 
+    /* =========================
+       PARILTI
+       ========================= */
+
     .sparkle-container {
       position: absolute;
 
-      inset: -30px;
+      inset: -20px;
 
       z-index: 15;
 
       pointer-events: none;
-
-      overflow: visible;
     }
 
     .sparkle {
@@ -1381,8 +1326,7 @@
 
       border-radius: 50%;
 
-      background:
-        #f4d77b;
+      background: #f4d77b;
 
       box-shadow:
         0 0 8px
@@ -1393,14 +1337,10 @@
 
       opacity: 0;
 
-      transform:
-        translate(-50%, -50%)
-        scale(0);
-
       animation:
         sparkleBurst
         1.5s
-        cubic-bezier(0.22, 1, 0.36, 1)
+        ease-out
         forwards;
     }
 
@@ -1425,104 +1365,20 @@
             calc(-50% + var(--sparkle-x)),
             calc(-50% + var(--sparkle-y))
           )
-          scale(0.15);
-      }
-    }
-
-    .leaf {
-      position: absolute;
-
-      left: 50%;
-      top: 50%;
-
-      width: 26px;
-      height: 13px;
-
-      border-radius:
-        100% 0 100% 0 /
-        100% 0 100% 0;
-
-      background:
-        linear-gradient(
-          135deg,
-          #7f936f,
-          #5d704f
-        );
-
-      opacity: 0;
-
-      transform:
-        translate(-50%, -50%)
-        rotate(0deg)
-        scale(0.4);
-
-      animation:
-        leafBurst
-        1.9s
-        cubic-bezier(0.22, 1, 0.36, 1)
-        forwards;
-    }
-
-    .leaf::after {
-      content: "";
-
-      position: absolute;
-
-      left: 3px;
-      top: 50%;
-
-      width: 20px;
-      height: 1px;
-
-      background:
-        rgba(255, 255, 255, 0.55);
-
-      transform:
-        translateY(-50%)
-        rotate(-5deg);
-
-      border-radius: 999px;
-    }
-
-    @keyframes leafBurst {
-      0% {
-        opacity: 0;
-
-        transform:
-          translate(-50%, -50%)
-          rotate(0deg)
-          scale(0.4);
-      }
-
-      20% {
-        opacity: 0.9;
-      }
-
-      100% {
-        opacity: 0;
-
-        transform:
-          translate(
-            calc(-50% + var(--leaf-x)),
-            calc(-50% + var(--leaf-y))
-          )
-          rotate(var(--leaf-rotate))
-          scale(1);
+          scale(0.2);
       }
     }
 
     @media (min-width: 680px) {
+
       .action-buttons {
         grid-template-columns:
           repeat(2, 1fr);
       }
-
-      .action-button {
-        font-size: 18px;
-      }
     }
 
     @media (max-width: 600px) {
+
       .hero {
         padding-top: 32px;
       }
@@ -1539,58 +1395,33 @@
         width: 70px;
         height: 70px;
 
-        font-size: 30px;
+        font-size: 29px;
       }
 
-      .envelope.open
-      .letter {
+      .envelope.open .letter {
         width:
-          min(88vw, 380px);
+          min(73%, 340px);
+
+        transform:
+          translate(-50%, -45%);
+      }
+
+      .opening-preview {
+        width:
+          min(90vw, 390px);
 
         max-height: 82vh;
       }
 
+      .opening-preview img {
+        max-height: 82vh;
+      }
+
       .open-button {
-        margin-top: 60px;
-      }
-
-      .envelope-hearts span {
-        font-size: 9px;
-      }
-
-      .h10,
-      .h11,
-      .h12,
-      .h21,
-      .h22,
-      .h31,
-      .h32,
-      .h40,
-      .h41,
-      .h50,
-      .h51 {
-        display: none;
+        margin-top: 64px;
       }
     }
 
-    @media (prefers-reduced-motion: reduce) {
-      html {
-        scroll-behavior: auto;
-      }
-
-      *,
-      *::before,
-      *::after {
-        animation-duration:
-          0.01ms !important;
-
-        animation-iteration-count:
-          1 !important;
-
-        transition-duration:
-          0.01ms !important;
-      }
-    }
   </style>
 </head>
 
@@ -1598,9 +1429,16 @@
 
   <div class="particles"></div>
 
+  <!-- İlk 3 saniye ekranın ortasında görünen net davetiye -->
   <div
-    class="invitation-backdrop"
-    id="invitationBackdrop">
+    class="opening-preview"
+    id="openingPreview">
+
+    <img
+      id="openingPreviewImage"
+      src="davetiye.png.PNG"
+      alt="Zeynep ve Ahmet nikah davetiyesi">
+
   </div>
 
   <main>
@@ -1608,9 +1446,13 @@
     <section class="hero">
 
       <p class="couple-title">
+
         <span class="initial">Z</span>eynep
+
         <span class="ampersand">&amp;</span>
+
         <span class="initial">A</span>hmet
+
       </p>
 
       <h1>
@@ -1647,65 +1489,63 @@
 
           <div class="envelope-flap"></div>
 
-          <div
-            class="envelope-hearts"
-            aria-hidden="true">
+          <!-- Kalplerin taşmasını engelleyen maske -->
 
-            <span class="h1">♥</span>
-            <span class="h2">♥</span>
-            <span class="h3">♥</span>
-            <span class="h4">♥</span>
-            <span class="h5">♥</span>
-            <span class="h6">♥</span>
-            <span class="h7">♥</span>
-            <span class="h8">♥</span>
-            <span class="h9">♥</span>
-            <span class="h10">♥</span>
-            <span class="h11">♥</span>
-            <span class="h12">♥</span>
+          <div class="heart-mask">
 
-            <span class="h13">♥</span>
-            <span class="h14">♥</span>
-            <span class="h15">♥</span>
-            <span class="h16">♥</span>
-            <span class="h17">♥</span>
-            <span class="h18">♥</span>
-            <span class="h19">♥</span>
-            <span class="h20">♥</span>
-            <span class="h21">♥</span>
-            <span class="h22">♥</span>
+            <div
+              class="envelope-hearts"
+              aria-hidden="true">
 
-            <span class="h23">♥</span>
-            <span class="h24">♥</span>
-            <span class="h25">♥</span>
-            <span class="h26">♥</span>
-            <span class="h27">♥</span>
-            <span class="h28">♥</span>
-            <span class="h29">♥</span>
-            <span class="h30">♥</span>
-            <span class="h31">♥</span>
-            <span class="h32">♥</span>
+              <span class="h1">♥</span>
+              <span class="h2">♥</span>
+              <span class="h3">♥</span>
+              <span class="h4">♥</span>
+              <span class="h5">♥</span>
+              <span class="h6">♥</span>
+              <span class="h7">♥</span>
+              <span class="h8">♥</span>
+              <span class="h9">♥</span>
 
-            <span class="h33">♥</span>
-            <span class="h34">♥</span>
-            <span class="h35">♥</span>
-            <span class="h36">♥</span>
-            <span class="h37">♥</span>
-            <span class="h38">♥</span>
-            <span class="h39">♥</span>
-            <span class="h40">♥</span>
-            <span class="h41">♥</span>
+              <span class="h10">♥</span>
+              <span class="h11">♥</span>
+              <span class="h12">♥</span>
+              <span class="h13">♥</span>
+              <span class="h14">♥</span>
+              <span class="h15">♥</span>
+              <span class="h16">♥</span>
+              <span class="h17">♥</span>
 
-            <span class="h42">♥</span>
-            <span class="h43">♥</span>
-            <span class="h44">♥</span>
-            <span class="h45">♥</span>
-            <span class="h46">♥</span>
-            <span class="h47">♥</span>
-            <span class="h48">♥</span>
-            <span class="h49">♥</span>
-            <span class="h50">♥</span>
-            <span class="h51">♥</span>
+              <span class="h18">♥</span>
+              <span class="h19">♥</span>
+              <span class="h20">♥</span>
+              <span class="h21">♥</span>
+              <span class="h22">♥</span>
+              <span class="h23">♥</span>
+              <span class="h24">♥</span>
+              <span class="h25">♥</span>
+              <span class="h26">♥</span>
+
+              <span class="h27">♥</span>
+              <span class="h28">♥</span>
+              <span class="h29">♥</span>
+              <span class="h30">♥</span>
+              <span class="h31">♥</span>
+              <span class="h32">♥</span>
+              <span class="h33">♥</span>
+              <span class="h34">♥</span>
+
+              <span class="h35">♥</span>
+              <span class="h36">♥</span>
+              <span class="h37">♥</span>
+              <span class="h38">♥</span>
+              <span class="h39">♥</span>
+              <span class="h40">♥</span>
+              <span class="h41">♥</span>
+              <span class="h42">♥</span>
+              <span class="h43">♥</span>
+
+            </div>
 
           </div>
 
@@ -1819,7 +1659,7 @@
       </h2>
 
       <p class="action-subtitle">
-        Konumu açabilir veya tarihi telefonunuza kaydedebilirsiniz.
+        Konumu açabilir veya nikah tarihini telefonunuza kaydedebilirsiniz.
       </p>
 
       <div class="action-buttons">
@@ -1853,17 +1693,11 @@
 
       <p class="signature">
 
-        <span class="signature-initial">
-          Z
-        </span>eynep
+        <span class="signature-initial">Z</span>eynep
 
-        <span class="signature-and">
-          &amp;
-        </span>
+        <span class="signature-and">&amp;</span>
 
-        <span class="signature-initial">
-          A
-        </span>hmet
+        <span class="signature-initial">A</span>hmet
 
       </p>
 
@@ -1883,6 +1717,8 @@
     class="confetti-container"
     id="confettiContainer">
   </div>
+
+  <!-- Tam ekran davetiye -->
 
   <div
     class="image-modal"
@@ -1905,6 +1741,7 @@
   </div>
 
   <script>
+
     document.addEventListener(
       "DOMContentLoaded",
       function () {
@@ -1934,14 +1771,14 @@
             "calendarButton"
           );
 
-        const confettiContainer =
+        const openingPreview =
           document.getElementById(
-            "confettiContainer"
+            "openingPreview"
           );
 
-        const sparkleContainer =
+        const openingPreviewImage =
           document.getElementById(
-            "sparkleContainer"
+            "openingPreviewImage"
           );
 
         const invitationImage =
@@ -1959,16 +1796,21 @@
             "modalClose"
           );
 
-        const invitationBackdrop =
+        const confettiContainer =
           document.getElementById(
-            "invitationBackdrop"
+            "confettiContainer"
+          );
+
+        const sparkleContainer =
+          document.getElementById(
+            "sparkleContainer"
           );
 
         let isOpen = false;
 
         let confettiPlayed = false;
 
-        let autoScrollTimer = null;
+        let previewTimer = null;
 
         openButton.addEventListener(
           "click",
@@ -1976,44 +1818,31 @@
 
             isOpen = !isOpen;
 
-            envelope.classList.toggle(
-              "open",
-              isOpen
-            );
-
-            details.classList.toggle(
-              "visible",
-              isOpen
-            );
-
-            invitationBackdrop.classList.toggle(
-              "active",
-              isOpen
-            );
-
-            details.setAttribute(
-              "aria-hidden",
-              isOpen
-                ? "false"
-                : "true"
-            );
-
-            openButton.textContent =
-              isOpen
-                ? "Zarfı Kapat"
-                : "Zarfı Aç";
-
-            if (autoScrollTimer) {
+            if (previewTimer) {
               clearTimeout(
-                autoScrollTimer
+                previewTimer
               );
             }
 
             if (isOpen) {
 
-              createSparkles();
+              envelope.classList.add(
+                "open"
+              );
 
-              createLeaves();
+              details.classList.add(
+                "visible"
+              );
+
+              details.setAttribute(
+                "aria-hidden",
+                "false"
+              );
+
+              openButton.textContent =
+                "Zarfı Kapat";
+
+              createSparkles();
 
               if (!confettiPlayed) {
 
@@ -2022,43 +1851,178 @@
                 confettiPlayed = true;
               }
 
-              autoScrollTimer =
+              /*
+                Önce zarf açılıyor.
+                Sonra ortada net davetiye görünüyor.
+              */
+
+              setTimeout(
+                function () {
+
+                  if (!isOpen) {
+                    return;
+                  }
+
+                  openingPreview
+                    .classList
+                    .add(
+                      "active"
+                    );
+
+                },
+                650
+              );
+
+              /*
+                3 saniye sonra sadece
+                ortadaki büyük önizleme kayboluyor.
+
+                ZARF KAPANMIYOR.
+                ZARFTAKİ DAVETİYE AÇIK KALIYOR.
+              */
+
+              previewTimer =
                 setTimeout(
                   function () {
 
-                    invitationBackdrop
+                    if (!isOpen) {
+                      return;
+                    }
+
+                    openingPreview
                       .classList
                       .remove(
                         "active"
                       );
 
-                    envelope
-                      .classList
-                      .remove(
-                        "open"
-                      );
+                    setTimeout(
+                      function () {
 
-                    actionArea
-                      .scrollIntoView({
-                        behavior:
-                          "smooth",
+                        actionArea
+                          .scrollIntoView({
 
-                        block:
-                          "center"
-                      });
+                            behavior:
+                              "smooth",
 
-                    openButton
-                      .textContent =
-                      "Zarfı Tekrar Aç";
+                            block:
+                              "center"
 
-                    isOpen = false;
+                          });
+
+                      },
+                      250
+                    );
 
                   },
-                  3000
+                  3650
                 );
+
+            } else {
+
+              openingPreview
+                .classList
+                .remove(
+                  "active"
+                );
+
+              envelope
+                .classList
+                .remove(
+                  "open"
+                );
+
+              details
+                .classList
+                .remove(
+                  "visible"
+                );
+
+              details.setAttribute(
+                "aria-hidden",
+                "true"
+              );
+
+              openButton.textContent =
+                "Zarfı Aç";
             }
+
           }
         );
+
+        /*
+          Zarfta açık kalan davetiyeye
+          dokununca tam ekran.
+        */
+
+        invitationImage
+          .addEventListener(
+            "click",
+            function () {
+
+              imageModal
+                .classList
+                .add(
+                  "active"
+                );
+
+            }
+          );
+
+        /*
+          İlk üç saniyedeki büyük
+          davetiyeye de dokunulabilir.
+        */
+
+        openingPreviewImage
+          .addEventListener(
+            "click",
+            function () {
+
+              imageModal
+                .classList
+                .add(
+                  "active"
+                );
+
+            }
+          );
+
+        function closeModal() {
+
+          imageModal
+            .classList
+            .remove(
+              "active"
+            );
+
+        }
+
+        modalClose
+          .addEventListener(
+            "click",
+            closeModal
+          );
+
+        imageModal
+          .addEventListener(
+            "click",
+            function (event) {
+
+              if (
+                event.target
+                === imageModal
+              ) {
+
+                closeModal();
+
+              }
+
+            }
+          );
+
+        /*
+          GERİ SAYIM
+        */
 
         function updateCountdown() {
 
@@ -2096,41 +2060,50 @@
               % 60
             );
 
-          document.getElementById(
-            "days"
-          ).textContent =
+          document
+            .getElementById(
+              "days"
+            )
+            .textContent =
             String(days)
               .padStart(
                 2,
                 "0"
               );
 
-          document.getElementById(
-            "hours"
-          ).textContent =
+          document
+            .getElementById(
+              "hours"
+            )
+            .textContent =
             String(hours)
               .padStart(
                 2,
                 "0"
               );
 
-          document.getElementById(
-            "minutes"
-          ).textContent =
+          document
+            .getElementById(
+              "minutes"
+            )
+            .textContent =
             String(minutes)
               .padStart(
                 2,
                 "0"
               );
 
-          document.getElementById(
-            "seconds"
-          ).textContent =
+          document
+            .getElementById(
+              "seconds"
+            )
+            .textContent =
             String(seconds)
               .padStart(
                 2,
                 "0"
               );
+
         }
 
         updateCountdown();
@@ -2139,6 +2112,10 @@
           updateCountdown,
           1000
         );
+
+        /*
+          PARILTI
+        */
 
         function createSparkles() {
 
@@ -2165,9 +2142,9 @@
               * 2;
 
             const distance =
-              60
+              55
               + Math.random()
-              * 110;
+              * 90;
 
             const x =
               Math.cos(angle)
@@ -2189,19 +2166,8 @@
 
             sparkle.style.animationDelay =
               Math.random()
-              * 0.25
+              * 0.2
               + "s";
-
-            const size =
-              4
-              + Math.random()
-              * 7;
-
-            sparkle.style.width =
-              size + "px";
-
-            sparkle.style.height =
-              size + "px";
 
             sparkleContainer
               .appendChild(
@@ -2214,99 +2180,27 @@
                 sparkle.remove();
 
               },
-              1900
+              1800
             );
+
           }
+
         }
 
-        function createLeaves() {
-
-          const leafCount =
-            8;
-
-          for (
-            let i = 0;
-            i < leafCount;
-            i += 1
-          ) {
-
-            const leaf =
-              document.createElement(
-                "span"
-              );
-
-            leaf.className =
-              "leaf";
-
-            const angle =
-              Math.random()
-              * Math.PI
-              * 2;
-
-            const distance =
-              70
-              + Math.random()
-              * 100;
-
-            const x =
-              Math.cos(angle)
-              * distance;
-
-            const y =
-              Math.sin(angle)
-              * distance;
-
-            const rotate =
-              Math.floor(
-                Math.random()
-                * 360
-              )
-              + "deg";
-
-            leaf.style.setProperty(
-              "--leaf-x",
-              x + "px"
-            );
-
-            leaf.style.setProperty(
-              "--leaf-y",
-              y + "px"
-            );
-
-            leaf.style.setProperty(
-              "--leaf-rotate",
-              rotate
-            );
-
-            leaf.style.animationDelay =
-              Math.random()
-              * 0.2
-              + "s";
-
-            sparkleContainer
-              .appendChild(
-                leaf
-              );
-
-            setTimeout(
-              function () {
-
-                leaf.remove();
-
-              },
-              2200
-            );
-          }
-        }
+        /*
+          KONFETİ
+        */
 
         function createConfetti() {
 
           const colors = [
+
             "#c59b47",
             "#ead8ae",
             "#5d704f",
             "#ffffff",
             "#d8b86a"
+
           ];
 
           for (
@@ -2360,8 +2254,14 @@
               },
               5500
             );
+
           }
+
         }
+
+        /*
+          TAKVİME EKLE
+        */
 
         calendarButton
           .addEventListener(
@@ -2369,16 +2269,27 @@
             function () {
 
               const calendarData = [
+
                 "BEGIN:VCALENDAR",
+
                 "VERSION:2.0",
+
                 "BEGIN:VEVENT",
+
                 "SUMMARY:Zeynep ve Ahmet Nikah Töreni",
+
                 "DTSTART:20260904T123000Z",
+
                 "DTEND:20260904T143000Z",
+
                 "LOCATION:Bornova Nikah Salonu",
+
                 "DESCRIPTION:Zeynep ve Ahmet'in nikah töreni",
+
                 "END:VEVENT",
+
                 "END:VCALENDAR"
+
               ].join("\r\n");
 
               const calendarBlob =
@@ -2418,87 +2329,7 @@
               URL.revokeObjectURL(
                 calendarUrl
               );
-            }
-          );
 
-        invitationImage
-          .addEventListener(
-            "click",
-            function () {
-
-              imageModal
-                .classList
-                .add(
-                  "active"
-                );
-            }
-          );
-
-        function closeModal() {
-
-          imageModal
-            .classList
-            .remove(
-              "active"
-            );
-        }
-
-        modalClose
-          .addEventListener(
-            "click",
-            closeModal
-          );
-
-        imageModal
-          .addEventListener(
-            "click",
-            function (event) {
-
-              if (
-                event.target
-                === imageModal
-              ) {
-
-                closeModal();
-              }
-            }
-          );
-
-        invitationBackdrop
-          .addEventListener(
-            "click",
-            function () {
-
-              if (
-                isOpen
-              ) {
-
-                if (
-                  autoScrollTimer
-                ) {
-                  clearTimeout(
-                    autoScrollTimer
-                  );
-                }
-
-                envelope
-                  .classList
-                  .remove(
-                    "open"
-                  );
-
-                invitationBackdrop
-                  .classList
-                  .remove(
-                    "active"
-                  );
-
-                openButton
-                  .textContent =
-                  "Zarfı Aç";
-
-                isOpen = false;
-              }
             }
           );
 
@@ -2520,47 +2351,14 @@
 
                 closeModal();
 
-                return;
               }
 
-              if (
-                event.key
-                === "Escape"
-                &&
-                isOpen
-              ) {
-
-                if (
-                  autoScrollTimer
-                ) {
-
-                  clearTimeout(
-                    autoScrollTimer
-                  );
-                }
-
-                envelope
-                  .classList
-                  .remove(
-                    "open"
-                  );
-
-                invitationBackdrop
-                  .classList
-                  .remove(
-                    "active"
-                  );
-
-                openButton
-                  .textContent =
-                  "Zarfı Aç";
-
-                isOpen = false;
-              }
             }
           );
+
       }
     );
+
   </script>
 
 </body>
