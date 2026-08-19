@@ -1383,8 +1383,20 @@
                       "preview-hidden"
                     );
 
+                    attendancePanel
+                      .scrollIntoView({
+                        behavior:
+                          "smooth",
+                        block:
+                          "center"
+                      });
+
                     setTimeout(
                       function () {
+
+                        if (!isOpen) {
+                          return;
+                        }
 
                         actionArea
                           .scrollIntoView({
@@ -1394,11 +1406,11 @@
                               "center"
                           });
                       },
-                      250
+                      3000
                     );
 
                   },
-                  5650
+                  3650
                 );
 
             } else {
