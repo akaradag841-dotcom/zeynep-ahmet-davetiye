@@ -1,1 +1,1069 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
 
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+  <meta
+    name="theme-color"
+    content="#f5efe6">
+
+  <title>
+    Katılım Listesi | Zeynep & Ahmet
+  </title>
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600&family=Montserrat:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <script
+    src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2">
+  </script>
+
+  <style>
+
+    :root{
+      --bg:#f5efe6;
+      --card:#fffaf3;
+      --ink:#4f574b;
+      --muted:#8a8479;
+      --green:#5f7658;
+      --red:#9a665f;
+      --line:rgba(88,100,80,.16);
+    }
+
+    *{
+      box-sizing:border-box;
+    }
+
+    body{
+      margin:0;
+
+      min-height:100vh;
+
+      background:
+        radial-gradient(
+          circle at top,
+          #fffaf3 0,
+          transparent 38%
+        ),
+        var(--bg);
+
+      color:var(--ink);
+
+      font-family:
+        "Montserrat",
+        sans-serif;
+    }
+
+    .wrap{
+      width:min(94%,720px);
+
+      margin:
+        0 auto;
+
+      padding:
+        32px
+        0
+        60px;
+    }
+
+    h1{
+      margin:0;
+
+      text-align:center;
+
+      font:
+        600
+        38px/1.1
+        "Cormorant Garamond",
+        serif;
+    }
+
+    .sub{
+      margin:
+        8px
+        0
+        28px;
+
+      text-align:center;
+
+      color:var(--muted);
+
+      font-size:13px;
+    }
+
+    .card{
+      background:
+        rgba(
+          255,
+          250,
+          243,
+          .88
+        );
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:24px;
+
+      box-shadow:
+        0
+        18px
+        40px
+        rgba(
+          78,
+          65,
+          50,
+          .07
+        );
+
+      padding:20px;
+
+      margin-bottom:18px;
+    }
+
+    .login-title{
+      font:
+        600
+        25px/1.1
+        "Cormorant Garamond",
+        serif;
+
+      margin-bottom:8px;
+    }
+
+    .login-note{
+      color:var(--muted);
+
+      font-size:13px;
+
+      line-height:1.55;
+
+      margin-bottom:16px;
+    }
+
+    input{
+      width:100%;
+
+      height:48px;
+
+      padding:
+        0
+        14px;
+
+      border:
+        1px solid
+        var(--line);
+
+      border-radius:14px;
+
+      background:white;
+
+      outline:none;
+
+      color:var(--ink);
+
+      font-size:15px;
+    }
+
+    .btn{
+      width:100%;
+
+      min-height:48px;
+
+      margin-top:10px;
+
+      border:0;
+
+      border-radius:14px;
+
+      background:
+        var(--green);
+
+      color:white;
+
+      font-weight:600;
+
+      font-size:14px;
+    }
+
+    .btn.secondary{
+      background:
+        #e9e0d4;
+
+      color:
+        var(--ink);
+    }
+
+    .status{
+      min-height:20px;
+
+      margin-top:12px;
+
+      color:
+        var(--muted);
+
+      font-size:13px;
+
+      line-height:1.5;
+    }
+
+    .summary{
+      display:grid;
+
+      grid-template-columns:
+        1fr
+        1fr;
+
+      gap:12px;
+
+      margin-bottom:18px;
+    }
+
+    .sum{
+      text-align:center;
+
+      border-radius:22px;
+
+      padding:
+        22px
+        12px;
+
+      background:
+        rgba(
+          255,
+          250,
+          243,
+          .9
+        );
+
+      border:
+        1px solid
+        var(--line);
+    }
+
+    .sum strong{
+      display:block;
+
+      font:
+        600
+        42px/1
+        "Cormorant Garamond",
+        serif;
+
+      margin-bottom:6px;
+    }
+
+    .sum.yes strong{
+      color:
+        var(--green);
+    }
+
+    .sum.no strong{
+      color:
+        var(--red);
+    }
+
+    .sum span{
+      font-size:12px;
+
+      color:
+        var(--muted);
+    }
+
+    .toolbar{
+      display:flex;
+
+      align-items:center;
+
+      justify-content:
+        space-between;
+
+      gap:10px;
+
+      margin-bottom:12px;
+    }
+
+    .toolbar h2{
+      margin:0;
+
+      font:
+        600
+        26px/1
+        "Cormorant Garamond",
+        serif;
+    }
+
+    .refresh{
+      border:0;
+
+      border-radius:12px;
+
+      padding:
+        10px
+        13px;
+
+      background:
+        #e9e0d4;
+
+      color:
+        var(--ink);
+
+      font-weight:600;
+    }
+
+    .list{
+      display:grid;
+
+      gap:10px;
+    }
+
+    .row{
+      display:grid;
+
+      grid-template-columns:
+        1fr
+        auto;
+
+      gap:12px;
+
+      align-items:center;
+
+      border:
+        1px solid
+        var(--line);
+
+      background:
+        rgba(
+          255,
+          255,
+          255,
+          .67
+        );
+
+      border-radius:16px;
+
+      padding:14px;
+    }
+
+    .name{
+      font-weight:600;
+
+      font-size:15px;
+
+      overflow-wrap:anywhere;
+    }
+
+    .time{
+      margin-top:4px;
+
+      color:
+        var(--muted);
+
+      font-size:11px;
+    }
+
+    .badge{
+      border-radius:999px;
+
+      padding:
+        8px
+        10px;
+
+      color:white;
+
+      font-size:11px;
+
+      font-weight:600;
+
+      white-space:nowrap;
+    }
+
+    .badge.yes{
+      background:
+        var(--green);
+    }
+
+    .badge.no{
+      background:
+        var(--red);
+    }
+
+    .empty{
+      padding:
+        25px
+        12px;
+
+      text-align:center;
+
+      color:
+        var(--muted);
+
+      border:
+        1px dashed
+        var(--line);
+
+      border-radius:16px;
+    }
+
+    #dashboard{
+      display:none;
+    }
+
+    .signed{
+      margin-top:10px;
+
+      text-align:center;
+
+      color:
+        var(--muted);
+
+      font-size:11px;
+    }
+
+    @media(max-width:520px){
+
+      .wrap{
+        padding-top:22px;
+      }
+
+      h1{
+        font-size:34px;
+      }
+
+      .summary{
+        grid-template-columns:
+          1fr
+          1fr;
+      }
+
+      .row{
+        grid-template-columns:
+          1fr;
+      }
+
+      .badge{
+        justify-self:start;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <main class="wrap">
+
+    <h1>
+      Zeynep & Ahmet
+    </h1>
+
+    <div class="sub">
+      Katılım Listesi
+    </div>
+
+
+    <section
+      id="loginCard"
+      class="card">
+
+      <div class="login-title">
+        Yönetici Girişi
+      </div>
+
+      <div class="login-note">
+
+        Bu sayfa yalnızca
+        yetkili e-posta hesabı
+        ile açılır.
+
+        E-postana gelen güvenli
+        giriş bağlantısına dokun.
+
+      </div>
+
+
+      <input
+        id="email"
+        type="email"
+        value="akaradag841@gmail.com"
+        autocomplete="email"
+        placeholder="E-posta adresi">
+
+
+      <button
+        class="btn"
+        id="loginBtn"
+        type="button">
+
+        Giriş Bağlantısı Gönder
+
+      </button>
+
+
+      <div
+        class="status"
+        id="loginStatus">
+      </div>
+
+    </section>
+
+
+
+    <section id="dashboard">
+
+      <div class="summary">
+
+        <div class="sum yes">
+
+          <strong id="yesCount">
+            0
+          </strong>
+
+          <span>
+            Katılıyorum
+          </span>
+
+        </div>
+
+
+        <div class="sum no">
+
+          <strong id="noCount">
+            0
+          </strong>
+
+          <span>
+            Katılamayacağım
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <div class="card">
+
+        <div class="toolbar">
+
+          <h2>
+            Davetliler
+          </h2>
+
+          <button
+            class="refresh"
+            id="refreshBtn"
+            type="button">
+
+            Yenile
+
+          </button>
+
+        </div>
+
+
+        <div
+          class="list"
+          id="guestList">
+        </div>
+
+      </div>
+
+
+      <button
+        class="btn secondary"
+        id="logoutBtn"
+        type="button">
+
+        Çıkış Yap
+
+      </button>
+
+
+      <div
+        class="signed"
+        id="signedAs">
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+  <script>
+
+    const SUPABASE_URL =
+      "https://fgqnxbccvfwhrrdlfend.supabase.co";
+
+
+    const SUPABASE_KEY =
+      "sb_publishable_T6NsseFSYbqrRWqt3lTfGA_8o7Srw6P";
+
+
+    const ADMIN_EMAIL =
+      "akaradag841@gmail.com";
+
+
+    const client =
+      supabase.createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+      );
+
+
+    const loginCard =
+      document.getElementById(
+        "loginCard"
+      );
+
+
+    const dashboard =
+      document.getElementById(
+        "dashboard"
+      );
+
+
+    const emailInput =
+      document.getElementById(
+        "email"
+      );
+
+
+    const loginBtn =
+      document.getElementById(
+        "loginBtn"
+      );
+
+
+    const loginStatus =
+      document.getElementById(
+        "loginStatus"
+      );
+
+
+    const yesCount =
+      document.getElementById(
+        "yesCount"
+      );
+
+
+    const noCount =
+      document.getElementById(
+        "noCount"
+      );
+
+
+    const guestList =
+      document.getElementById(
+        "guestList"
+      );
+
+
+    const signedAs =
+      document.getElementById(
+        "signedAs"
+      );
+
+
+
+    function formatDate(value){
+
+      const date =
+        new Date(value);
+
+
+      return new Intl.DateTimeFormat(
+        "tr-TR",
+        {
+          dateStyle:
+            "short",
+
+          timeStyle:
+            "short"
+        }
+      ).format(date);
+
+    }
+
+
+
+    async function loadGuests(){
+
+      guestList.innerHTML =
+        '<div class="empty">Yükleniyor...</div>';
+
+
+      const {
+        data,
+        error
+      } =
+        await client
+          .from(
+            "wedding_rsvp"
+          )
+          .select(
+            "id,full_name,attendance,created_at"
+          )
+          .order(
+            "created_at",
+            {
+              ascending:false
+            }
+          );
+
+
+      if(error){
+
+        guestList.innerHTML =
+          '<div class="empty">Liste alınamadı. Tekrar giriş yapmayı deneyin.</div>';
+
+        return;
+
+      }
+
+
+      const yes =
+        data.filter(
+          x =>
+            x.attendance
+            ===
+            "katiliyorum"
+        );
+
+
+      const no =
+        data.filter(
+          x =>
+            x.attendance
+            ===
+            "katilamiyorum"
+        );
+
+
+      yesCount.textContent =
+        yes.length;
+
+
+      noCount.textContent =
+        no.length;
+
+
+      if(!data.length){
+
+        guestList.innerHTML =
+          '<div class="empty">Henüz katılım kaydı yok.</div>';
+
+        return;
+
+      }
+
+
+      guestList.innerHTML =
+        "";
+
+
+      data.forEach(
+        item => {
+
+          const row =
+            document.createElement(
+              "div"
+            );
+
+
+          row.className =
+            "row";
+
+
+          const left =
+            document.createElement(
+              "div"
+            );
+
+
+          const name =
+            document.createElement(
+              "div"
+            );
+
+
+          name.className =
+            "name";
+
+
+          name.textContent =
+            item.full_name;
+
+
+          const time =
+            document.createElement(
+              "div"
+            );
+
+
+          time.className =
+            "time";
+
+
+          time.textContent =
+            formatDate(
+              item.created_at
+            );
+
+
+          left.appendChild(
+            name
+          );
+
+
+          left.appendChild(
+            time
+          );
+
+
+          const badge =
+            document.createElement(
+              "div"
+            );
+
+
+          const joined =
+            item.attendance
+            ===
+            "katiliyorum";
+
+
+          badge.className =
+            "badge "
+            +
+            (
+              joined
+              ?
+              "yes"
+              :
+              "no"
+            );
+
+
+          badge.textContent =
+            joined
+            ?
+            "✓ Katılıyor"
+            :
+            "✕ Katılamıyor";
+
+
+          row.appendChild(
+            left
+          );
+
+
+          row.appendChild(
+            badge
+          );
+
+
+          guestList.appendChild(
+            row
+          );
+
+        }
+      );
+
+    }
+
+
+
+    async function showState(){
+
+      const {
+        data:{
+          session
+        }
+      } =
+        await client.auth.getSession();
+
+
+      if(
+        session
+        &&
+        session.user
+        &&
+        String(
+          session.user.email
+          ||
+          ""
+        ).toLowerCase()
+        ===
+        ADMIN_EMAIL
+      ){
+
+        loginCard.style.display =
+          "none";
+
+
+        dashboard.style.display =
+          "block";
+
+
+        signedAs.textContent =
+          "Giriş: "
+          +
+          session.user.email;
+
+
+        await loadGuests();
+
+      }
+
+      else{
+
+        dashboard.style.display =
+          "none";
+
+
+        loginCard.style.display =
+          "block";
+
+      }
+
+    }
+
+
+
+    loginBtn.addEventListener(
+      "click",
+      async () => {
+
+        const email =
+          emailInput
+            .value
+            .trim()
+            .toLowerCase();
+
+
+        if(
+          email
+          !==
+          ADMIN_EMAIL
+        ){
+
+          loginStatus.textContent =
+            "Bu e-posta yetkili değil.";
+
+          return;
+
+        }
+
+
+        loginBtn.disabled =
+          true;
+
+
+        loginStatus.textContent =
+          "Giriş bağlantısı gönderiliyor...";
+
+
+        const {
+          error
+        } =
+          await client.auth.signInWithOtp(
+            {
+              email,
+
+              options:{
+                emailRedirectTo:
+                  window.location.href
+                    .split("#")[0]
+              }
+            }
+          );
+
+
+        loginBtn.disabled =
+          false;
+
+
+        if(error){
+
+          loginStatus.textContent =
+            "Bağlantı gönderilemedi: "
+            +
+            error.message;
+
+          return;
+
+        }
+
+
+        loginStatus.textContent =
+          "E-postana giriş bağlantısı gönderildi. Maildeki bağlantıya dokun.";
+
+      }
+    );
+
+
+
+    document
+      .getElementById(
+        "refreshBtn"
+      )
+      .addEventListener(
+        "click",
+        loadGuests
+      );
+
+
+
+    document
+      .getElementById(
+        "logoutBtn"
+      )
+      .addEventListener(
+        "click",
+        async () => {
+
+          await client.auth.signOut();
+
+          location.reload();
+
+        }
+      );
+
+
+
+    client.auth.onAuthStateChange(
+      () => {
+
+        setTimeout(
+          showState,
+          0
+        );
+
+      }
+    );
+
+
+    showState();
+
+  </script>
+
+</body>
+</html>
