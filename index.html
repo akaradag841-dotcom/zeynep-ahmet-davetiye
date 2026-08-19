@@ -451,103 +451,6 @@
       transform: scale(0.97);
     }
 
-
-
-    /* Katılım alanı - mevcut tasarıma dokunmadan eklendi */
-    .attendance-box {
-      position: relative;
-      z-index: 20;
-      width: min(92%, 430px);
-      margin: 26px auto 0;
-      padding: 22px 18px;
-      border: 1px solid rgba(197, 155, 71, 0.22);
-      border-radius: 24px;
-      background: rgba(255, 253, 248, 0.94);
-      box-shadow: 0 16px 34px rgba(79, 63, 42, 0.10);
-      opacity: 0;
-      visibility: hidden;
-      transform: translateY(14px);
-      transition: opacity 0.45s ease, transform 0.45s ease;
-    }
-
-    .attendance-box.show {
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(0);
-    }
-
-    .attendance-title {
-      margin: 0 0 14px;
-      color: var(--green-dark);
-      font-size: 22px;
-      font-weight: 600;
-    }
-
-    .attendance-name {
-      width: 100%;
-      margin: 0 0 14px;
-      padding: 14px 16px;
-      border: 1px solid rgba(197, 155, 71, 0.30);
-      border-radius: 16px;
-      outline: none;
-      background: #fffdf8;
-      color: var(--green-dark);
-      font-size: 17px;
-      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
-    }
-
-    .attendance-name:focus {
-      border-color: rgba(78, 98, 67, 0.58);
-      box-shadow: 0 0 0 3px rgba(78, 98, 67, 0.08);
-    }
-
-    .attendance-buttons {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    .attendance-choice {
-      min-height: 48px;
-      padding: 12px 10px;
-      border: 1px solid rgba(78, 98, 67, 0.28);
-      border-radius: 999px;
-      background: linear-gradient(145deg, #66795a, #425338);
-      color: white;
-      font-size: 16px;
-      font-weight: 600;
-      cursor: pointer;
-      touch-action: manipulation;
-      -webkit-tap-highlight-color: transparent;
-      transition: transform .18s ease, box-shadow .18s ease, opacity .18s ease;
-    }
-
-    .attendance-choice.no {
-      background: linear-gradient(145deg, #a78c7d, #7b6256);
-    }
-
-    .attendance-choice:active {
-      transform: scale(.97);
-    }
-
-    .attendance-choice.selected {
-      box-shadow: 0 0 0 3px rgba(197,155,71,.24), 0 10px 22px rgba(69,87,59,.18);
-    }
-
-    .attendance-message {
-      min-height: 22px;
-      margin: 13px 4px 0;
-      color: var(--green-dark);
-      font-size: 16px;
-      text-align: center;
-    }
-
-    @media (max-width: 430px) {
-      .attendance-buttons {
-        grid-template-columns: 1fr;
-      }
-    }
-
     .details {
       width: min(92%, 720px);
       margin: 0 auto;
@@ -900,6 +803,123 @@
         margin-top: 64px;
       }
     }
+
+    /* Katılım alanı — mevcut tasarıma ek */
+    .attendance-panel {
+      width: min(92vw, 430px);
+      margin: 22px auto 0;
+      padding: 20px 18px 18px;
+      border: 1px solid rgba(92, 112, 79, 0.20);
+      border-radius: 22px;
+      background: rgba(255, 255, 255, 0.70);
+      box-shadow: 0 12px 30px rgba(55, 65, 48, 0.08);
+      opacity: 0;
+      transform: translateY(10px);
+      pointer-events: none;
+      max-height: 0;
+      overflow: hidden;
+      transition:
+        opacity .35s ease,
+        transform .35s ease,
+        max-height .45s ease,
+        margin .35s ease,
+        padding .35s ease;
+    }
+
+    .attendance-panel.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+      max-height: 360px;
+    }
+
+    .attendance-title {
+      margin: 0 0 6px;
+      color: #4f6146;
+      font-family: "Cormorant Garamond", serif;
+      font-size: 23px;
+      font-weight: 600;
+    }
+
+    .attendance-note {
+      margin: 0 0 15px;
+      color: #7b7b70;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .attendance-name {
+      width: 100%;
+      height: 46px;
+      padding: 0 15px;
+      border: 1px solid rgba(92, 112, 79, 0.28);
+      border-radius: 14px;
+      outline: none;
+      background: #fffdf8;
+      color: #41483d;
+      font-size: 16px;
+      box-shadow: inset 0 1px 0 rgba(255,255,255,.8);
+    }
+
+    .attendance-name:focus {
+      border-color: rgba(92, 112, 79, 0.65);
+      box-shadow: 0 0 0 3px rgba(92, 112, 79, 0.08);
+    }
+
+    .attendance-buttons {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .attendance-choice {
+      min-height: 46px;
+      border: 0;
+      border-radius: 14px;
+      padding: 10px 8px;
+      color: white;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform .18s ease, filter .18s ease;
+    }
+
+    .attendance-choice:active {
+      transform: scale(.97);
+    }
+
+    .attendance-choice.yes {
+      background: linear-gradient(135deg, #66855a, #4f7048);
+    }
+
+    .attendance-choice.no {
+      background: linear-gradient(135deg, #a27067, #8e5e57);
+    }
+
+    .attendance-choice:disabled {
+      opacity: .62;
+      cursor: wait;
+    }
+
+    .attendance-message {
+      min-height: 22px;
+      margin-top: 12px;
+      color: #56634f;
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    @media (max-width: 420px) {
+      .attendance-panel {
+        width: 92vw;
+      }
+
+      .attendance-buttons {
+        grid-template-columns: 1fr;
+      }
+    }
+
   </style>
 </head>
 
@@ -1001,18 +1021,29 @@
           Zarfı Aç
         </button>
 
+        <div
+          class="attendance-panel"
+          id="attendancePanel"
+          aria-hidden="true">
 
-        <div class="attendance-box" id="attendanceBox">
-          <p class="attendance-title">Katılım Durumu</p>
+          <h2 class="attendance-title">
+            Katılım Durumu
+          </h2>
+
+          <p class="attendance-note">
+            Lütfen isim soyisminizi yazıp katılım durumunuzu seçin.
+          </p>
 
           <input
-            type="text"
             class="attendance-name"
             id="attendanceName"
-            placeholder="İsim Soyisim"
-            autocomplete="name">
+            type="text"
+            maxlength="120"
+            autocomplete="name"
+            placeholder="İsim Soyisim">
 
           <div class="attendance-buttons">
+
             <button
               type="button"
               class="attendance-choice yes"
@@ -1026,14 +1057,18 @@
               id="attendNo">
               ✕ Katılamayacağım
             </button>
+
           </div>
 
-          <p
+          <div
             class="attendance-message"
             id="attendanceMessage"
+            role="status"
             aria-live="polite">
-          </p>
+          </div>
+
         </div>
+
       </div>
     </section>
 
@@ -1184,15 +1219,9 @@
             "actionArea"
           );
 
-        const calendarButton =
+        const attendancePanel =
           document.getElementById(
-            "calendarButton"
-          );
-
-
-        const attendanceBox =
-          document.getElementById(
-            "attendanceBox"
+            "attendancePanel"
           );
 
         const attendanceName =
@@ -1213,6 +1242,11 @@
         const attendanceMessage =
           document.getElementById(
             "attendanceMessage"
+          );
+
+        const calendarButton =
+          document.getElementById(
+            "calendarButton"
           );
 
         const openingPreview =
@@ -1284,11 +1318,16 @@
               openButton.textContent =
                 "Zarfı Kapat";
 
-
-              attendanceBox
+              attendancePanel
                 .classList
                 .add(
-                  "show"
+                  "visible"
+                );
+
+              attendancePanel
+                .setAttribute(
+                  "aria-hidden",
+                  "false"
                 );
 
               createSparkles();
@@ -1394,11 +1433,16 @@
               openButton.textContent =
                 "Zarfı Aç";
 
-
-              attendanceBox
+              attendancePanel
                 .classList
                 .remove(
-                  "show"
+                  "visible"
+                );
+
+              attendancePanel
+                .setAttribute(
+                  "aria-hidden",
+                  "true"
                 );
             }
           }
@@ -1458,6 +1502,115 @@
               }
             }
           );
+
+
+        /*
+          Katılım kayıtları Supabase'e kaydedilir.
+          Ziyaretçiler yalnızca kayıt ekleyebilir;
+          listedeki diğer kişileri web sitesinden okuyamaz.
+        */
+        const SUPABASE_URL =
+          "https://fgqnxbccvfwhrrdlfend.supabase.co";
+
+        const SUPABASE_ANON_KEY =
+          "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZncW54YmNjdmZ3aHJyZGxmZW5kIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODY5MTE4MDYsImV4cCI6MjEwMjQ4NzgwNn0.36wTA4MalCIVSmYvmyp9q9fH_geN65Ehs6TWkVSJsuU";
+
+        async function saveAttendance(status) {
+
+          const fullName =
+            attendanceName
+              .value
+              .trim();
+
+          if (fullName.length < 2) {
+            attendanceMessage.textContent =
+              "Lütfen isim soyisminizi yazın.";
+            attendanceName.focus();
+            return;
+          }
+
+          attendYes.disabled = true;
+          attendNo.disabled = true;
+
+          attendanceMessage.textContent =
+            "Kaydediliyor...";
+
+          try {
+
+            const response =
+              await fetch(
+                SUPABASE_URL
+                + "/rest/v1/wedding_rsvp",
+                {
+                  method: "POST",
+                  headers: {
+                    "apikey":
+                      SUPABASE_ANON_KEY,
+                    "Authorization":
+                      "Bearer "
+                      + SUPABASE_ANON_KEY,
+                    "Content-Type":
+                      "application/json",
+                    "Prefer":
+                      "return=minimal"
+                  },
+                  body:
+                    JSON.stringify({
+                      full_name:
+                        fullName,
+                      attendance:
+                        status
+                    })
+                }
+              );
+
+            if (!response.ok) {
+              throw new Error(
+                "Kayıt gönderilemedi"
+              );
+            }
+
+            attendanceMessage.textContent =
+              status === "katiliyorum"
+              ? "Teşekkürler "
+                + fullName
+                + " ♡ Katılımınız kaydedildi."
+              : "Teşekkürler "
+                + fullName
+                + " ♡ Yanıtınız kaydedildi.";
+
+            attendanceName.value = "";
+
+          } catch (error) {
+
+            attendanceMessage.textContent =
+              "Kayıt sırasında bir sorun oluştu. Lütfen tekrar deneyin.";
+
+          } finally {
+
+            attendYes.disabled = false;
+            attendNo.disabled = false;
+
+          }
+        }
+
+        attendYes.addEventListener(
+          "click",
+          function () {
+            saveAttendance(
+              "katiliyorum"
+            );
+          }
+        );
+
+        attendNo.addEventListener(
+          "click",
+          function () {
+            saveAttendance(
+              "katilamiyorum"
+            );
+          }
+        );
 
         function updateCountdown() {
 
@@ -1671,105 +1824,6 @@
                 piece.remove();
               },
               5500
-            );
-          }
-        }
-
-        function setAttendance(status) {
-          const fullName =
-            attendanceName
-              .value
-              .trim();
-
-          if (!fullName) {
-            attendanceMessage.textContent =
-              "Lütfen önce isim ve soyisminizi yazın.";
-
-            attendanceName.focus();
-            return;
-          }
-
-          attendYes.classList.remove(
-            "selected"
-          );
-
-          attendNo.classList.remove(
-            "selected"
-          );
-
-          if (status === "Katılıyorum") {
-            attendYes.classList.add(
-              "selected"
-            );
-          } else {
-            attendNo.classList.add(
-              "selected"
-            );
-          }
-
-          attendanceMessage.textContent =
-            fullName
-            + " • "
-            + status
-            + " ✓";
-
-          localStorage.setItem(
-            "zeynepAhmetAttendance",
-            JSON.stringify({
-              name: fullName,
-              status: status
-            })
-          );
-        }
-
-        attendYes.addEventListener(
-          "click",
-          function () {
-            setAttendance(
-              "Katılıyorum"
-            );
-          }
-        );
-
-        attendNo.addEventListener(
-          "click",
-          function () {
-            setAttendance(
-              "Katılamayacağım"
-            );
-          }
-        );
-
-        const savedAttendance =
-          localStorage.getItem(
-            "zeynepAhmetAttendance"
-          );
-
-        if (savedAttendance) {
-          try {
-            const saved =
-              JSON.parse(
-                savedAttendance
-              );
-
-            attendanceName.value =
-              saved.name || "";
-
-            attendanceMessage.textContent =
-              saved.name
-              ? saved.name + " • " + saved.status + " ✓"
-              : "";
-
-            if (saved.status === "Katılıyorum") {
-              attendYes.classList.add("selected");
-            }
-
-            if (saved.status === "Katılamayacağım") {
-              attendNo.classList.add("selected");
-            }
-          } catch (error) {
-            localStorage.removeItem(
-              "zeynepAhmetAttendance"
             );
           }
         }
